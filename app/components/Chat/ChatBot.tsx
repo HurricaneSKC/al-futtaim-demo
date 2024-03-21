@@ -17,12 +17,7 @@ const ChatBot = () => {
       </div>
       <form action="" onSubmit={(e) => handleSubmit(e)}>
         <label className="input input-bordered flex items-center gap-2">
-          <input
-            type="text"
-            className="grow"
-            placeholder="Chat"
-            x-webkit-speech
-          />
+          <input type="text" className="grow" placeholder="Chat" />
           <button
             onClick={() => {
               console.log("switch on microphone");
