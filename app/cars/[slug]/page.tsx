@@ -5,7 +5,7 @@ interface Props {
 }
 
 const CarDetailPage = ({ params: { slug } }: Props) => {
-  return <div>CarDetailPage {slug}</div>;
+  return <div>{slug}</div>;
 };
 
 export default CarDetailPage;
