@@ -1,13 +1,17 @@
 import React from "react";
+import Message from "../../entities/Message";
 
-interface Props {
-  text?: string;
-}
-
-const ChatMessage = ({ text }: Props) => {
+const ChatMessage = ({ id, role, content }: Message) => {
   return (
-    <div className="chat chat-end">
-      <div className="chat-bubble chat-bubble-secondary">{text}</div>
+    <div className={`chat ${role === "user" ? "chat-end" : "chat-start"}`}>
+      <div className="chat-header">{role}</div>
+      <div
+        className={`chat-bubble ${
+          role === "user" ? "chat-bubble-primary" : "chat-bubble"
+        }`}
+      >
+        {content}
+      </div>
     </div>
   );
 };

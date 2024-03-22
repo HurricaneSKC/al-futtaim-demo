@@ -3,6 +3,7 @@
 import { useState } from "react";
 import MockCarGrid from "./components/CarGrid/MockCarGrid";
 import ChatBot from "./components/Chat/ChatBot";
+import Heading from "./components/Heading/Heading";
 
 export default function Home() {
   const [showChatOverlay, setShowChatOverlay] = useState(false);
@@ -28,8 +29,8 @@ export default function Home() {
           {/* chat button */}
           {/* explore button */}
         </div>
-        <div className="h-full w-full flex flex-col p-4 justify-between">
-          <div>Logo</div>
+        <div className="h-full w-full flex flex-col justify-between">
+          <Heading />
           {/* Logo */}
           <ChatBot />
         </div>

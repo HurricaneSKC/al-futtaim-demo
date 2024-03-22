@@ -1,14 +1,17 @@
 import React from "react";
-import ChatResponse from "./ChatResponse";
 import ChatMessage from "./ChatMessage";
+import Message from "@/app/entities/Message";
 
-const ChatList = () => {
+interface Props {
+  messages: Message[];
+}
+
+const ChatList = ({ messages }: Props) => {
   return (
     <div className="chat-messages py-2">
-      <ChatResponse />
-      <ChatMessage />
-      <ChatResponse />
-      <ChatMessage />
+      {messages.reverse().map(({ id, role, content }) => (
+        <ChatMessage id={id} key={id} role={role} content={content} />
+      ))}
     </div>
   );
 };
