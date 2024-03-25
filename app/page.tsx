@@ -1,15 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import MockCarGrid from "./components/CarGrid/MockCarGrid";
-import ChatBot from "./components/Chat/ChatBot";
-import Heading from "./components/Heading/Heading";
 import LetsTalkIcoBtn from "@/public/misc/ico-letstalk.svg";
 import Image from "next/image";
-import Button from "./components/ui/Logo";
 import Link from "next/link";
-import AppLogo from "./components/ui/Logo";
+import { useState } from "react";
 import ChatOverlay from "./components/ChatOverlay";
+import Heading from "./components/Heading/Heading";
 
 export default function Home() {
   const [showChatOverlay, setShowChatOverlay] = useState(false);
