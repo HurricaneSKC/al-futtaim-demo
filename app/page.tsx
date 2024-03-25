@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import MockCarGrid from "./components/CarGrid/MockCarGrid";
+import MockCarGrid from "./components/CarGrid";
 import ChatBot from "./components/Chat/ChatBot";
 import Heading from "./components/Heading/Heading";
 import LetsTalkIcoBtn from "@/public/misc/ico-letstalk.svg";

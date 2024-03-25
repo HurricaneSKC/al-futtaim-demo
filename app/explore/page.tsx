@@ -1,7 +1,11 @@
+import CarGrid from "../components/CarGrid";
+import Header from "../components/Header";
+
 export default function ExplorePage() {
     return (
         <div className="bg-white h-full w-full">
-            <h1 className="text-black text-2xl font-thin text-center">Interactive Grid Here</h1>
+            <Header allowBackNavigation={false} />
+            <CarGrid />            
         </div>
     )
 }
