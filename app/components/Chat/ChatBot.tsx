@@ -19,6 +19,7 @@ const ChatBot = () => {
   const [chat, updateChat] = useState<string[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isChatLoading, setChatLoading] = useState(false);
+  const [isChatDisabled, setChatDisabled] = useState(false);
 
   const addIdtoMessages = (
     jsonData: { role: string; content: string }[]
@@ -38,6 +39,7 @@ const ChatBot = () => {
     const id = Date.now();
     setMessages([...messages, { id: id, role: "user", content: input }]);
     setChatLoading(true);
+    setChatDisabled(true);
     setInput("");
     // send input to chat-messages array
     // display in chat-messages component
@@ -52,7 +54,7 @@ const ChatBot = () => {
         handleSubmit={handleSubmit}
         setInput={setInput}
         input={input}
-        isDisabled={isChatLoading}
+        isDisabled={isChatDisabled}
       />
     </div>
   );
