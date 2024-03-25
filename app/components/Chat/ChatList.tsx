@@ -1,12 +1,20 @@
-import React, { MutableRefObject, useEffect, useMemo, useRef } from "react";
+import React, {
+  MutableRefObject,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import ChatMessage from "./ChatMessage";
 import Message from "@/app/entities/Message";
+import LoadingMessage from "./LoadingMessage";
 
 interface Props {
   messages: Message[];
+  isLoading: Boolean;
 }
 
-const ChatList = ({ messages }: Props) => {
+const ChatList = ({ messages, isLoading }: Props) => {
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -21,6 +29,7 @@ const ChatList = ({ messages }: Props) => {
       {messages.map(({ id, role, content }) => (
         <ChatMessage id={id} key={id} role={role} content={content} />
       ))}
+      {isLoading && <LoadingMessage />}
       <div ref={messagesEndRef}></div>
     </div>
   );
