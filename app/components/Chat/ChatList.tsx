@@ -1,12 +1,6 @@
-import React, {
-  MutableRefObject,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import ChatMessage from "./ChatMessage";
 import Message from "@/app/entities/Message";
+import { useEffect, useRef } from "react";
+import ChatMessage from "./ChatMessage";
 import LoadingMessage from "./LoadingMessage";
 
 interface Props {

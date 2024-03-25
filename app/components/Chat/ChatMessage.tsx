@@ -3,8 +3,9 @@ import Image from "next/image";
 import Message from "../../entities/Message";
 import chatAvatar from "@/public/chatAvatar.png";
 import { RxAvatar } from "react-icons/rx";
+import car from "@/public/70c55411dde24c75a6268cc60823bfaa.jpg";
 
-const ChatMessage = ({ id, role, content }: Message) => {
+const ChatMessage = ({ id, role, content, image }: Message) => {
   return (
     <div className={`chat ${role === "user" ? "chat-end" : "chat-start"}`}>
       <div className="chat-image avatar">
@@ -23,6 +24,11 @@ const ChatMessage = ({ id, role, content }: Message) => {
         }`}
       >
         {content}
+        {image && (
+          <div className="my-1 rounded-lg overflow-hidden">
+            <Image src={image} alt={"car"} />
+          </div>
+        )}
       </div>
     </div>
   );
