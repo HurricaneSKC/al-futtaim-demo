@@ -16,9 +16,9 @@ export default function Home() {
 
   return (
     <main className="h-full w-full relative">
-      <div className="bg-white h-full w-full">
+      {/* <div className="bg-white h-full w-full">
         <MockCarGrid />
-      </div>
+      </div> */}
 
       <div className="absolute h-full w-full top-0 bg-slate-100/90">
         {/* white gradient overlay */}
