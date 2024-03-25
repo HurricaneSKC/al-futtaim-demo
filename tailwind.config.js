@@ -12,6 +12,9 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        'slideIn': 'slideIn 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both'//'slideIn 0.5s ease-in-out forwards',
+      },
     },
   },
   plugins: [require("daisyui")],

@@ -1,10 +1,11 @@
-import logo from "@/public/logo.png";
-import Image from "next/image";
+import AppLogo from "../ui/Logo";
+import WelcomeTitle from "./WelcomeTitle";
 
 const Heading = () => {
   return (
-    <div className="bg-gradient-to-b from-white px-16 pt-4 pb-16 flex justify-center">
-      <Image src={logo} alt="Logo" />
+    <div className="px-16 pt-4 pb-16 flex flex-col gap-y-10 justify-center">
+      <AppLogo />
+      <WelcomeTitle name='Amir' />
     </div>
   );
 };

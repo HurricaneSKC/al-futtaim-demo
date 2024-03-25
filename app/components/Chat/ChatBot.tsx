@@ -1,3 +1,5 @@
+'use client';
+
 import React, {
   FormEvent,
   MutableRefObject,
@@ -25,6 +27,31 @@ const ChatBot = () => {
       role: "user",
       content: "Which cars have a V6 engine and cost less than 130000?",
     },
+    // {
+    //   id: 2,
+    //   role: "user",
+    //   content: "Which cars have a V6 engine and cost less than 130000?",
+    // },
+    // {
+    //   id: 2,
+    //   role: "user",
+    //   content: "Which cars have a V6 engine and cost less than 130000?",
+    // },
+    // {
+    //   id: 2,
+    //   role: "user",
+    //   content: "Which cars have a V6 engine and cost less than 130000?",
+    // },
+    // {
+    //   id: 2,
+    //   role: "user",
+    //   content: "Which cars have a V6 engine and cost less than 130000?",
+    // },
+    // {
+    //   id: 2,
+    //   role: "user",
+    //   content: "Which cars have a V6 engine and cost less than 130000?",
+    // },
   ]);
   // message object [{id:1, role: "chatResponse", message:"some message"}]
   const handleSubmit = (e: FormEvent) => {
@@ -40,7 +67,7 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="p-4 flex flex-col">
+    <div className="p-4 flex flex-col overflow-hidden flex-1">
       <ChatList messages={messages} />
       <MessageInput
         handleSubmit={handleSubmit}

@@ -9,7 +9,7 @@ interface Props {
 
 const MessageInput = ({ handleSubmit, setInput, input }: Props) => {
   return (
-    <form action="" onSubmit={(e) => handleSubmit(e)} className="flex-none">
+    <form action="" onSubmit={(e) => handleSubmit(e)} className="flex-none mt-auto">
       <label className="input input-bordered flex items-center gap-2">
         <input
           onChange={(e) => setInput(e.target.value)}
