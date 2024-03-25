@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, {
   FormEvent,
@@ -11,52 +11,29 @@ import React, {
 import ChatList from "./ChatList";
 import MessageInput from "./MessageInput";
 import Heading from "../Heading/Heading";
+import messagesResponse from "@/app/mockdata/messages.json";
+import Message from "@/app/entities/Message";
 
 const ChatBot = () => {
   const [input, setInput] = useState("");
   const [chat, updateChat] = useState<string[]>([]);
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      role: "system",
-      content:
-        "You're tasked with generating responses for customers based on past prompts and data. Stick to this info and generate one data-related question.\n\nRemember, ***don't list specific cars***; the goal is to seek more exact customer preferences.\nThe output should casual, brief and humanly",
-    },
-    {
-      id: 2,
-      role: "user",
-      content: "Which cars have a V6 engine and cost less than 130000?",
-    },
-    // {
-    //   id: 2,
-    //   role: "user",
-    //   content: "Which cars have a V6 engine and cost less than 130000?",
-    // },
-    // {
-    //   id: 2,
-    //   role: "user",
-    //   content: "Which cars have a V6 engine and cost less than 130000?",
-    // },
-    // {
-    //   id: 2,
-    //   role: "user",
-    //   content: "Which cars have a V6 engine and cost less than 130000?",
-    // },
-    // {
-    //   id: 2,
-    //   role: "user",
-    //   content: "Which cars have a V6 engine and cost less than 130000?",
-    // },
-    // {
-    //   id: 2,
-    //   role: "user",
-    //   content: "Which cars have a V6 engine and cost less than 130000?",
-    // },
-  ]);
-  // message object [{id:1, role: "chatResponse", message:"some message"}]
+  const [messages, setMessages] = useState<Message[]>([]);
+
+  const addIdtoMessages = (
+    jsonData: { role: string; content: string }[]
+  ): Message[] => {
+    return jsonData.map((message, index) => {
+      return { id: index, ...message };
+    });
+  };
+
+  useEffect(() => {
+    const messagesArray = addIdtoMessages(messagesResponse);
+    setMessages(messagesArray);
+  }, []);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(input);
     const id = Date.now();
     setMessages([...messages, { id: id, role: "user", content: input }]);
     setInput("");
