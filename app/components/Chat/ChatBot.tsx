@@ -52,6 +52,7 @@ const ChatBot = () => {
         handleSubmit={handleSubmit}
         setInput={setInput}
         input={input}
+        isDisabled={isChatLoading}
       />
     </div>
   );
