@@ -4,7 +4,6 @@ import openai
 import tiktoken
 import pandas as pd
 import warnings
-import openai
 # TODO [STATUS: Next] add more fearures similar to "Fuel Efficiency", "Safety",  "Navigation System",  "Interior Information", "Exterior Information" to data
 # TODO [STATUS: Maybe] Optimize overall experience.
 
@@ -214,9 +213,8 @@ def invoke_model_response_prompt(messages, max_tokens=1000, temperature=0.0):
 
     return messages
 
-df = load_and_preprocess_data(path= "aggregated_data.xlsx")
+df = load_and_preprocess_data(path="api/aggregated_data.xlsx")
 df['Car_Name'] = df['Brand'] + ' ' + df['Model'] 
 
 ## for testing using terminal
 # interactive_prompt(df)
-
