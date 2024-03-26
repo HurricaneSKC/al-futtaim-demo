@@ -43,7 +43,7 @@ async def get_cars(data: CarPrompt):
     logger.info(f'Received data: {data}')
 
     if not data.cars:
-        df = load_and_preprocess_data(path= "aggregated_data.xlsx")
+        df = load_and_preprocess_data(path= "api/aggregated_data.xlsx")
 
 
     else:
