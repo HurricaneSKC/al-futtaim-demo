@@ -1,3 +1,4 @@
+import { log } from "console";
 import React, { FormEvent } from "react";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 
@@ -5,11 +6,18 @@ interface Props {
   input: string;
   handleSubmit: (e: FormEvent) => void;
   setInput: (e: string) => void;
+  isDisabled: boolean;
 }
 
-const MessageInput = ({ handleSubmit, setInput, input }: Props) => {
+const MessageInput = ({ handleSubmit, setInput, input, isDisabled }: Props) => {
+  console.log(isDisabled);
+
   return (
-    <form action="" onSubmit={(e) => handleSubmit(e)} className="flex-none mt-auto">
+    <form
+      action=""
+      onSubmit={(e) => handleSubmit(e)}
+      className="flex-none mt-auto"
+    >
       <label className="input input-bordered flex items-center gap-2">
         <input
           onChange={(e) => setInput(e.target.value)}
@@ -17,7 +25,7 @@ const MessageInput = ({ handleSubmit, setInput, input }: Props) => {
           className="grow"
           placeholder="Chat"
           value={input}
-          disabled={false}
+          disabled={isDisabled}
         />
         <HiOutlineMicrophone />
       </label>
