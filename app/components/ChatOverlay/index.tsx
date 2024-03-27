@@ -4,11 +4,11 @@ import AppLogo from "../ui/Logo";
 import ChatBot from "../Chat/ChatBot";
 import { HiArrowLeft } from "react-icons/hi2";
 
-export default function ChatOverlay({
-  onBackClick,
-}: {
+interface Props {
   onBackClick: () => void;
-}) {
+}
+
+export default function ChatOverlay({ onBackClick }: Props) {
   return (
     <div className="absolute w-full h-full inset-0 bg-white animate-slideIn">
       <div className="flex flex-col justify-center items-center h-full">

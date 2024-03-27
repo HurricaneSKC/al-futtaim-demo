@@ -9,7 +9,7 @@ import Heading from "./components/Heading/Heading";
 import axios from "axios";
 import testpost from "./mockdata/testpost.json";
 import Message from "./entities/Message";
-import { Cars } from "./entities/Cars";
+import Cars from "./entities/Cars";
 
 interface DataProps {
   messages: Message[];
@@ -27,7 +27,10 @@ export default function Home() {
   useEffect(() => {
     instance
       .post("/cars", testpost)
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      })
       .catch((error) => {
         console.error(error);
       });
