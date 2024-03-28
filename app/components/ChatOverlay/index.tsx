@@ -11,7 +11,7 @@ interface Props {
 export default function ChatOverlay({ onBackClick }: Props) {
   return (
     <div className="absolute w-full h-full inset-0 bg-white animate-slideIn">
-      <div className="flex flex-col justify-center items-center h-full">
+      <div className="flex flex-col justify-center items-center h-full w-full">
         <div className="flex justify-start items-center w-full px-3 py-2 shadow-md">
           <HiArrowLeft
             className="text-black text-xl cursor-pointer"

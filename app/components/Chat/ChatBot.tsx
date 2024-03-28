@@ -3,7 +3,7 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
 
 import Message from "@/app/entities/Message";
-import messagesResponse from "@/app/mockdata/messages.json";
+import carList from "@/app/mockdata/cars.json";
 import ChatList from "./ChatList";
 import MessageInput from "./MessageInput";
 import { DataContext } from "@/app/page";
@@ -11,47 +11,36 @@ import { DataContext } from "@/app/page";
 const ChatBot = () => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
-  const [isChatLoading, setChatLoading] = useState(false);
-  const [isChatDisabled, setChatDisabled] = useState(false);
-  const { serverData, setData } = useContext(DataContext);
 
-  console.log(serverData);
+  const { serverData, setData, isChatLoading, setChatLoading } =
+    useContext(DataContext);
 
-  const addIdtoMessages = (
-    jsonData: { role: string; content: string }[]
-  ): Message[] => {
-    return jsonData.map((message, index) => {
-      return { id: index, ...message };
-    });
-  };
+  console.log("serverData", serverData);
 
   useEffect(() => {
-    const messagesArray = addIdtoMessages(serverData.messages.slice(1));
-    setMessages(messagesArray);
+    setMessages(serverData.messages.slice(1));
   }, [serverData.messages]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setMessages([...messages, { role: "user", content: input }]);
-    console.log(messages);
-
-    setChatLoading(false);
-    setChatDisabled(false);
+    setData({
+      ...serverData,
+      messages: [...serverData.messages, { role: "user", content: input }],
+      cars: [...carList.cars],
+    });
+    setChatLoading(true);
     setInput("");
-    // send input to chat-messages array
-    // display in chat-messages component
-    // send question to the AI for a response
-    // return message -> chat response
   };
 
   return (
-    <div className="p-4 flex flex-col overflow-hidden flex-1">
+    <div className="p-4 flex flex-col overflow-hidden flex-1 w-full">
       <ChatList messages={messages} isLoading={isChatLoading} />
       <MessageInput
         handleSubmit={handleSubmit}
         setInput={setInput}
         input={input}
-        isDisabled={isChatDisabled}
+        isDisabled={isChatLoading}
       />
     </div>
   );

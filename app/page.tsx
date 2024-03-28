@@ -8,12 +8,12 @@ import {
   SetStateAction,
   createContext,
   useEffect,
+  useRef,
   useState,
 } from "react";
 import ChatOverlay from "./components/ChatOverlay";
 import Heading from "./components/Heading/Heading";
 import axios from "axios";
-import testpost from "./mockdata/testpost.json";
 import Message from "./entities/Message";
 import Cars from "./entities/Cars";
 
@@ -25,6 +25,8 @@ interface DataProps {
 interface DataContextType {
   serverData: DataProps;
   setData: Dispatch<SetStateAction<DataProps>>;
+  isChatLoading: boolean;
+  setChatLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export const DataContext = createContext<DataContextType>(
@@ -35,25 +37,46 @@ const instance = axios.create({
   baseURL: "http://localhost:8000/api",
 });
 
+const initialiseData = {
+  messages: [
+    {
+      role: "system",
+      content: "",
+    },
+  ],
+  cars: [],
+};
+
 export default function Home() {
   const [showChatOverlay, setShowChatOverlay] = useState(false);
-  const [data, setData] = useState<DataProps>(testpost);
-  const [serverData, setServerData] = useState<DataProps>(testpost);
+  const [data, setData] = useState<DataProps>(initialiseData);
+  const [serverData, setServerData] = useState<DataProps>(initialiseData);
+  const hasPageBeenRendered = useRef(false);
+  const [isChatLoading, setChatLoading] = useState(false);
 
   useEffect(() => {
-    instance
-      .post("/cars", data)
-      .then((res) => {
-        console.log(res.data);
-        setServerData(res.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    const controller = new AbortController();
+    console.log("data", data);
+    if (hasPageBeenRendered.current) {
+      instance
+        .post("/cars", data, { signal: controller.signal })
+        .then((res) => {
+          console.log(res.data);
+          setServerData(res.data);
+          setChatLoading(false);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+    hasPageBeenRendered.current = true;
+    return () => controller.abort();
   }, [data]);
 
   return (
-    <DataContext.Provider value={{ serverData, setData }}>
+    <DataContext.Provider
+      value={{ serverData, setData, isChatLoading, setChatLoading }}
+    >
       <main className="h-full w-full relative">
         {/* <div className="bg-white h-full w-full">
           <MockCarGrid />

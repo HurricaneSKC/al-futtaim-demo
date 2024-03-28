@@ -10,8 +10,6 @@ interface Props {
 }
 
 const MessageInput = ({ handleSubmit, setInput, input, isDisabled }: Props) => {
-  console.log(isDisabled);
-
   return (
     <form
       action=""
