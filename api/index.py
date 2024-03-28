@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, parse_obj_as
 import logging
 import pandas as pd
-from filter_cars_using_prompt_conversation import generate_response_and_update_messages, load_and_preprocess_data
+from .filter_cars_using_prompt_conversation import generate_response_and_update_messages, load_and_preprocess_data
 
 class Car(BaseModel):
     Brand: str

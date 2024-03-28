@@ -3,7 +3,13 @@
 import LetsTalkIcoBtn from "@/public/misc/ico-letstalk.svg";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
 import ChatOverlay from "./components/ChatOverlay";
 import Heading from "./components/Heading/Heading";
 import axios from "axios";
@@ -16,63 +22,75 @@ interface DataProps {
   cars: Cars[];
 }
 
+interface DataContextType {
+  serverData: DataProps;
+  setData: Dispatch<SetStateAction<DataProps>>;
+}
+
+export const DataContext = createContext<DataContextType>(
+  {} as DataContextType
+);
+
 const instance = axios.create({
   baseURL: "http://localhost:8000/api",
 });
 
 export default function Home() {
   const [showChatOverlay, setShowChatOverlay] = useState(false);
-  const [data, setData] = useState<DataProps>();
+  const [data, setData] = useState<DataProps>(testpost);
+  const [serverData, setServerData] = useState<DataProps>(testpost);
 
   useEffect(() => {
     instance
-      .post("/cars", testpost)
+      .post("/cars", data)
       .then((res) => {
         console.log(res.data);
-        setData(res.data);
+        setServerData(res.data);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [data]);
 
   return (
-    <main className="h-full w-full relative">
-      {/* <div className="bg-white h-full w-full">
-        <MockCarGrid />
-      </div> */}
+    <DataContext.Provider value={{ serverData, setData }}>
+      <main className="h-full w-full relative">
+        {/* <div className="bg-white h-full w-full">
+          <MockCarGrid />
+        </div> */}
 
-      <div className="absolute h-full w-full top-0 bg-slate-100/90">
-        {/* white gradient overlay */}
-        <div className="absolute w-full h-[60%] bg-gradient-to-b from-white" />
-        {/* landing screen content */}
-        <div className="h-full w-full flex flex-col justify-between relative">
-          <Heading />
-          <div className="flex flex-col gap-4 w-full px-6 pb-3">
-            <button
-              className="btn btn-primary w-full"
-              onClick={() => {
-                setShowChatOverlay(true);
-              }}
-            >
-              <Image
-                src={LetsTalkIcoBtn}
-                alt="Lets Talk Action Icon"
-                width={40}
-                height={40}
-              />
-              <p className="mr-10">Let&apos;s Chat</p>
-            </button>
-            <Link href="/explore" className="w-full">
-              <button className="btn btn-secondary w-full">Explore</button>
-            </Link>
+        <div className="absolute h-full w-full top-0 bg-slate-100/90">
+          {/* white gradient overlay */}
+          <div className="absolute w-full h-[60%] bg-gradient-to-b from-white" />
+          {/* landing screen content */}
+          <div className="h-full w-full flex flex-col justify-between relative">
+            <Heading />
+            <div className="flex flex-col gap-4 w-full px-6 pb-3">
+              <button
+                className="btn btn-primary w-full"
+                onClick={() => {
+                  setShowChatOverlay(true);
+                }}
+              >
+                <Image
+                  src={LetsTalkIcoBtn}
+                  alt="Lets Talk Action Icon"
+                  width={40}
+                  height={40}
+                />
+                <p className="mr-10">Let&apos;s Chat</p>
+              </button>
+              <Link href="/explore" className="w-full">
+                <button className="btn btn-secondary w-full">Explore</button>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-      {/* chat overlay */}
-      {showChatOverlay && (
-        <ChatOverlay onBackClick={() => setShowChatOverlay(false)} />
-      )}
-    </main>
+        {/* chat overlay */}
+        {showChatOverlay && (
+          <ChatOverlay onBackClick={() => setShowChatOverlay(false)} />
+        )}
+      </main>
+    </DataContext.Provider>
   );
 }
