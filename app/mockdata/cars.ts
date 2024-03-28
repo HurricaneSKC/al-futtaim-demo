@@ -39,303 +39,319 @@ import VolvoXC60 from '@/app/assets/mock/volvo/image 42.svg'
 import VolvoXC90 from '@/app/assets/mock/volvo/image 43.svg'
 import VolvoXC91 from '@/app/assets/mock/volvo/image 44.svg'
 
+const data = [
+    {
+        id: 1,
+        slug: 'challenger',
+        name: 'Challenger',
+        image: Challenger,
+        brand: 'Dodge',
+        price: 183500,
+        horsepower: 496
+    },
+    {
+        id: 2,
+        slug: 'charger',
+        name: 'Charger',
+        image: Charger,
+        brand: 'Dodge',
+        price: 164416,
+        horsepower: 432
+    },
+    {
+        id: 3,
+        slug: 'durango',
+        name: 'Durango',
+        image: Durango,
+        brand: 'Dodge',
+        price: 173224,
+        horsepower: 466
+    },
+    {
+        id: 4,
+        slug: 'grand-caravan',
+        name: 'Grand Caravan',
+        image: GrandCaravan,
+        brand: 'Jeep',
+        price: 180000,
+        horsepower: 350
+    },
+    {
+        id: 5,
+        slug: 'cherokee',
+        name: 'Cherokee',
+        image: Cherokee,
+        brand: 'Jeep',
+        price: 180000,
+        horsepower: 350
+    },
+    {
+        id: 6,
+        slug: 'gladiator',
+        name: 'Gladiator',
+        image: Gladiator,
+        brand: 'Jeep',
+        price: 180000,
+        horsepower: 300
+    },
+    {
+        id: 7,
+        slug: 'grand-cherokee',
+        name: 'Grand Cherokee',
+        image: GrandCherokee,
+        brand: 'Jeep',
+        price: 180000,
+        horsepower: 400
+    },
+    {
+        id: 8,
+        slug: 'wrangler',
+        name: 'Wrangler',
+        image: Wrangler,
+        brand: 'Jeep',
+        price: 180000,
+        horsepower: 380
+    },
+    {
+        id: 9,
+        slug: 'lexus-is',
+        name: 'Lexus IS',
+        image: LEXUS_IS,
+        brand: 'Lexus',
+        price: 180000,
+        horsepower: 280
+    },
+    {
+        id: 10,
+        slug: 'lexus-nx',
+        name: 'Lexus NX',
+        image: LEXUS_NX,
+        brand: 'Lexus',
+        price: 180000,
+        horsepower: 250        
+    },
+    {
+        id: 11,
+        slug: 'lexus-ux',
+        name: 'Lexus UX',
+        image: LEXUS_UX,
+        brand: 'Lexus',
+        price: 180000,
+        horsepower: 230
+    },
+    {
+        id: 12,
+        slug: 'lexus-ms',
+        name: 'Lexus MS',
+        image: LEXUS_MS,
+        brand: 'Lexus',
+        price: 180000,
+        horsepower: 280
+    },
+    {
+        id: 13,
+        slug: 'lexus-ls',
+        name: 'Lexus LS',
+        image: LEXUS_LS,
+        brand: 'Lexus',
+        price: 180000,
+        horsepower: 280
+    },
+    {
+        id: 14,
+        slug: 'lexus-es',
+        name: 'Lexus ES',
+        image: LEXUS_ES,
+        brand: 'Lexus',
+        price: 180000,
+    },
+    {
+        id: 15,
+        slug: 'lexus-oc',
+        name: 'Lexus OC',
+        image: LEXUS_OS,
+        brand: 'Lexus',
+        price: 180000,
+    },
+    {
+        id: 16,
+        slug: 'camry',
+        name: 'Camry',
+        image: Camry,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+        id: 17,
+        slug: 'corolla',
+        name: 'Corolla',
+        image: Corolla,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+        id: 18,
+        slug: 'highlander',
+        name: 'Highlander',
+        image: Highlander,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+        id: 19,
+        slug: 'innova',
+        name: 'Innova',
+        image: Innova,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+        id: 20,
+        slug: 'land-cruiser',
+        name: 'Land Cruiser',
+        image: LandCruiser,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+        id: 21,
+        slug: 'crown',
+        name: 'Crown',
+        image: Crown,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+        id: 22,
+        slug: 'prius',
+        name: 'Prius',
+        image: Prius,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+        id: 23,
+        slug: 'sienna',
+        name: 'Sienna',
+        image: Sienna,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+        id: 24,
+        slug: 'tacoma',
+        name: 'Tacoma',
+        image: Tacoma,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+        id: 25,
+        slug: 'sequoia',
+        name: 'Sequoia',
+        image: Sequoia,
+        brand: 'Toyota',
+        price: 180000,
+    },
+    {
+       id: 26,
+       slug: 'fortuner',
+       name: 'Fortuner',
+       image: Fortuner,
+       brand: 'Toyota',
+       price: 180000
+    },
+    {
+        id: 27,
+        slug: '4runner',
+        name: '4Runner',
+        image: Runner_4,
+        brand: 'Toyota',
+        price: 180000
+    },
+    {
+        id: 28,
+        slug: 'rav-4',
+        name: 'Rav 4',
+        image: Rav_4,
+        brand: 'Toyota',
+        price: 180000
+    },
+    {
+        id: 29,
+        slug: 'supra',
+        name: 'Supra',
+        image: Supra,
+        brand: 'Toyota',
+        price: 180000
+    },
+    {
+        id: 30,
+        slug: 'corolla-cross',
+        name: 'Corolla Cross',
+        image: CorollaCross,
+        brand: 'Toyota',
+        price: 200000
+    },
+    {
+        id: 31,
+        slug: 'volvo-s60',
+        name: 'Volvo S60',
+        image: VolvoS60,
+        brand: 'Volvo',
+        price: 180000
+    },
+    {
+        id: 32,
+        slug: 'volvo-v60',
+        name: 'Volvo V60',
+        image: VolvoV60,
+        brand: 'Volvo',
+        price: 180000
+    },
+    {
+        id: 33,
+        slug: 'volvo-xc40',
+        name: 'Volvo XC40',
+        image: VolvoXC40,
+        brand: 'Volvo',
+        price: 180000
+    },
+    {
+        id: 34,
+        slug: 'volvo-xc40',
+        name: 'Volvo XC40',
+        image: VolvoXC40,
+        brand: 'Volvo',
+        price: 180000
+    },
+    {
+        id: 35,
+        slug: 'volvo-xc60',
+        name: 'Volvo XC60',
+        image: VolvoXC60,
+        brand: 'Volvo',
+        price: 180000
+    },
+    {
+        id: 36,
+        slug: 'volvo-xc90',
+        name: 'Volvo XC90',
+        image: VolvoXC90,
+        brand: 'Volvo',
+        price: 180000
+    },
+    {
+        id: 37,
+        slug: 'volvo-s91',
+        name: 'Volvo S91',
+        image: VolvoXC91,
+        brand: 'Volvo',
+        price: 180000
+    },
+]
+
+export type CarItemType = typeof data[0];
 export default function getMockedCars() {
-    return [
-        {
-            id: 1,
-            slug: 'challenger',
-            name: 'Challenger',
-            image: Challenger,
-            brand: 'Dodge',
-            price: 183500,
-        },
-        {
-            id: 2,
-            slug: 'charger',
-            name: 'Charger',
-            image: Charger,
-            brand: 'Dodge',
-            price: 164416,
-        },
-        {
-            id: 3,
-            slug: 'durango',
-            name: 'Durango',
-            image: Durango,
-            brand: 'Dodge',
-            price: 173224,
-        },
-        {
-            id: 4,
-            slug: 'grand-caravan',
-            name: 'Grand Caravan',
-            image: GrandCaravan,
-            brand: 'Jeep',
-            price: 180000
-        },
-        {
-            id: 5,
-            slug: 'cherokee',
-            name: 'Cherokee',
-            image: Cherokee,
-            brand: 'Jeep',
-            price: 180000,
-        },
-        {
-            id: 6,
-            slug: 'gladiator',
-            name: 'Gladiator',
-            image: Gladiator,
-            brand: 'Jeep',
-            price: 180000,
-        },
-        {
-            id: 7,
-            slug: 'grand-cherokee',
-            name: 'Grand Cherokee',
-            image: GrandCherokee,
-            brand: 'Jeep',
-            price: 180000,
-        },
-        {
-            id: 8,
-            slug: 'wrangler',
-            name: 'Wrangler',
-            image: Wrangler,
-            brand: 'Jeep',
-            price: 180000,
-        },
-        {
-            id: 9,
-            slug: 'lexus-is',
-            name: 'Lexus IS',
-            image: LEXUS_IS,
-            brand: 'Lexus',
-            price: 180000,
-        },
-        {
-            id: 10,
-            slug: 'lexus-nx',
-            name: 'Lexus NX',
-            image: LEXUS_NX,
-            brand: 'Lexus',
-            price: 180000,
-        },
-        {
-            id: 11,
-            slug: 'lexus-ux',
-            name: 'Lexus UX',
-            image: LEXUS_UX,
-            brand: 'Lexus',
-            price: 180000,
-        },
-        {
-            id: 12,
-            slug: 'lexus-ms',
-            name: 'Lexus MS',
-            image: LEXUS_MS,
-            brand: 'Lexus',
-            price: 180000,
-        },
-        {
-            id: 13,
-            slug: 'lexus-ls',
-            name: 'Lexus LS',
-            image: LEXUS_LS,
-            brand: 'Lexus',
-            price: 180000,
-        },
-        {
-            id: 14,
-            slug: 'lexus-es',
-            name: 'Lexus ES',
-            image: LEXUS_ES,
-            brand: 'Lexus',
-            price: 180000,
-        },
-        {
-            id: 15,
-            slug: 'lexus-oc',
-            name: 'Lexus OC',
-            image: LEXUS_OS,
-            brand: 'Lexus',
-            price: 180000,
-        },
-        {
-            id: 16,
-            slug: 'camry',
-            name: 'Camry',
-            image: Camry,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-            id: 17,
-            slug: 'corolla',
-            name: 'Corolla',
-            image: Corolla,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-            id: 18,
-            slug: 'highlander',
-            name: 'Highlander',
-            image: Highlander,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-            id: 19,
-            slug: 'innova',
-            name: 'Innova',
-            image: Innova,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-            id: 20,
-            slug: 'land-cruiser',
-            name: 'Land Cruiser',
-            image: LandCruiser,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-            id: 21,
-            slug: 'crown',
-            name: 'Crown',
-            image: Crown,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-            id: 22,
-            slug: 'prius',
-            name: 'Prius',
-            image: Prius,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-            id: 23,
-            slug: 'sienna',
-            name: 'Sienna',
-            image: Sienna,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-            id: 24,
-            slug: 'tacoma',
-            name: 'Tacoma',
-            image: Tacoma,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-            id: 25,
-            slug: 'sequoia',
-            name: 'Sequoia',
-            image: Sequoia,
-            brand: 'Toyota',
-            price: 180000,
-        },
-        {
-           id: 26,
-           slug: 'fortuner',
-           name: 'Fortuner',
-           image: Fortuner,
-           brand: 'Toyota',
-           price: 180000
-        },
-        {
-            id: 27,
-            slug: '4runner',
-            name: '4Runner',
-            image: Runner_4,
-            brand: 'Toyota',
-            price: 180000
-        },
-        {
-            id: 28,
-            slug: 'rav-4',
-            name: 'Rav 4',
-            image: Rav_4,
-            brand: 'Toyota',
-            price: 180000
-        },
-        {
-            id: 29,
-            slug: 'supra',
-            name: 'Supra',
-            image: Supra,
-            brand: 'Toyota',
-            price: 180000
-        },
-        {
-            id: 30,
-            slug: 'corolla-cross',
-            name: 'Corolla Cross',
-            image: CorollaCross,
-            brand: 'Toyota',
-            price: 200000
-        },
-        {
-            id: 31,
-            slug: 'volvo-s60',
-            name: 'Volvo S60',
-            image: VolvoS60,
-            brand: 'Volvo',
-            price: 180000
-        },
-        {
-            id: 32,
-            slug: 'volvo-v60',
-            name: 'Volvo V60',
-            image: VolvoV60,
-            brand: 'Volvo',
-            price: 180000
-        },
-        {
-            id: 33,
-            slug: 'volvo-xc40',
-            name: 'Volvo XC40',
-            image: VolvoXC40,
-            brand: 'Volvo',
-            price: 180000
-        },
-        {
-            id: 33,
-            slug: 'volvo-xc40',
-            name: 'Volvo XC40',
-            image: VolvoXC40,
-            brand: 'Volvo',
-            price: 180000
-        },
-        {
-            id: 34,
-            slug: 'volvo-xc60',
-            name: 'Volvo XC60',
-            image: VolvoXC60,
-            brand: 'Volvo',
-            price: 180000
-        },
-        {
-            id: 35,
-            slug: 'volvo-xc90',
-            name: 'Volvo XC90',
-            image: VolvoXC90,
-            brand: 'Volvo',
-            price: 180000
-        },
-        {
-            id: 36,
-            slug: 'volvo-s91',
-            name: 'Volvo S91',
-            image: VolvoXC91,
-            brand: 'Volvo',
-            price: 180000
-        },
-    ]
+    return data;
 }
