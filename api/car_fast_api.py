@@ -32,7 +32,6 @@ class CarResponse(BaseModel):
 
 app = FastAPI()
 
-## TODO configrate to match frontend
 @app.post("/api/cars/", response_model=CarResponse)
 async def get_cars(data: CarPrompt):
     logging.basicConfig(level=logging.INFO)
@@ -40,7 +39,7 @@ async def get_cars(data: CarPrompt):
     logger.info(f'Received data: {data}')
 
     if not data.cars:
-        df = load_and_preprocess_data(path= "aggregated_data.xlsx")
+        df = load_and_preprocess_data(path= "api/aggregated_data.xlsx")
 
 
     else:

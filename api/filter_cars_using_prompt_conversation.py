@@ -167,7 +167,9 @@ def generate_response_and_update_messages(messages, df):
         print(f"{messages[0]['role'].title()}: {messages[0]['content']}\n\n")
 
         messages = invoke_model_response_prompt(messages)
-    
+
+        messages[0] = {"role": "system", "content": ""}
+
 
     return output_df, messages
 
@@ -213,8 +215,8 @@ def invoke_model_response_prompt(messages, max_tokens=1000, temperature=0.0):
 
     return messages
 
-df = load_and_preprocess_data(path="api/aggregated_data.xlsx")
-df['Car_Name'] = df['Brand'] + ' ' + df['Model'] 
-
 ## for testing using terminal
+
+# df = load_and_preprocess_data(path="api/aggregated_data.xlsx")
+# df['Car_Name'] = df['Brand'] + ' ' + df['Model'] 
 # interactive_prompt(df)
