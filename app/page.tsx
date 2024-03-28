@@ -3,12 +3,35 @@
 import LetsTalkIcoBtn from "@/public/misc/ico-letstalk.svg";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ChatOverlay from "./components/ChatOverlay";
 import Heading from "./components/Heading/Heading";
+import axios from "axios";
+import testpost from "./mockdata/testpost.json";
+import Message from "./entities/Message";
+import { Cars } from "./entities/Cars";
+
+interface DataProps {
+  messages: Message[];
+  cars: Cars[];
+}
+
+const instance = axios.create({
+  baseURL: "http://localhost:8000/api",
+});
 
 export default function Home() {
   const [showChatOverlay, setShowChatOverlay] = useState(false);
+  const [data, setData] = useState<DataProps>();
+
+  useEffect(() => {
+    instance
+      .post("/cars", testpost)
+      .then((res) => console.log(res.data))
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <main className="h-full w-full relative">
