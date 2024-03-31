@@ -5,6 +5,8 @@ import { cn } from "@/app/utils";
 import Image from "next/image";
 import React from "react";
 import { useGridContext } from "../context";
+import Link from "next/link";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 export default function CarGridElement({
   className,
@@ -14,14 +16,20 @@ export default function CarGridElement({
   carItem: CarItemType;
 }) {
   const { level } = useGridContext();
+  
   return (
     <div
       className={cn(
-        "col-span-1 flex justify-center items-center text-center px-3 py-4 border border-slate-200",
+        "col-span-1 flex justify-center items-center text-center px-3 py-4 border border-slate-200 relative",
         className
       )}
     >
       <div className="flex flex-col justify-center items-center">
+        {level === '2' && <div className="absolute top-1 right-2">
+          <Link href={`/cars/${carItem.slug}`} className="text-[9px]">
+            <RxOpenInNewWindow />
+          </Link>
+        </div>}
         <p
           className="text-[7px] self-start"
           style={{ opacity: level === "1" || level === "2" ? 1 : 0 }}
