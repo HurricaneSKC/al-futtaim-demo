@@ -36,7 +36,7 @@ export default function PinchGrid({
       <TransformComponent wrapperClass="overflow-auto max-h-[90%]">
         <div className={cn("grid grid-cols-4 gap-0", className)}>
           {children}
-        </div>
+        </div> 
       </TransformComponent>
     </TransformWrapper>
   );
