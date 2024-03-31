@@ -47,7 +47,11 @@ const data = [
         image: Challenger,
         brand: 'Dodge',
         price: 183500,
-        horsepower: 496
+        horsepower: 496,
+        engine: "6.2L V8 Supercharged",
+        category: "Performance",
+        size: "Mid-size",
+        seats: '4 Seats'
     },
     {
         id: 2,
@@ -56,7 +60,11 @@ const data = [
         image: Charger,
         brand: 'Dodge',
         price: 164416,
-        horsepower: 432
+        horsepower: 432,
+        engine: "6.2L V8 Supercharged",
+        category: "Performance",
+        size: "Full-size",
+        seats: '4 Seats'
     },
     {
         id: 3,
@@ -65,7 +73,11 @@ const data = [
         image: Durango,
         brand: 'Dodge',
         price: 173224,
-        horsepower: 466
+        horsepower: 466,
+        engine: "6.4L V8",
+        category: "Performance",
+        size: "Mid-size",
+        seats: '4 Seats'
     },
     {
         id: 4,
@@ -74,7 +86,11 @@ const data = [
         image: GrandCaravan,
         brand: 'Jeep',
         price: 180000,
-        horsepower: 350
+        horsepower: 350,
+        engine: "5.7L V8",
+        category: "Performance",
+        size: "Full-size",
+        seats: '4 Seats'
     },
     {
         id: 5,
@@ -83,7 +99,11 @@ const data = [
         image: Cherokee,
         brand: 'Jeep',
         price: 180000,
-        horsepower: 350
+        horsepower: 350,
+        engine: "5.7L V8",
+        category: "Performance",
+        size: "SUV",
+        seats: '4 Seats'
     },
     {
         id: 6,
@@ -92,7 +112,11 @@ const data = [
         image: Gladiator,
         brand: 'Jeep',
         price: 180000,
-        horsepower: 300
+        horsepower: 300,
+        engine: "5.7L V8",
+        category: "Performance",
+        size: "SUV",
+        seats: '4 Seats'
     },
     {
         id: 7,
@@ -101,7 +125,11 @@ const data = [
         image: GrandCherokee,
         brand: 'Jeep',
         price: 180000,
-        horsepower: 400
+        horsepower: 400,
+        engine: "5.7L V8",
+        category: "Performance",
+        size: "SUV",
+        seats: '3 Seats'
     },
     {
         id: 8,
@@ -110,7 +138,11 @@ const data = [
         image: Wrangler,
         brand: 'Jeep',
         price: 180000,
-        horsepower: 380
+        horsepower: 380,
+        engine: "5.7L V8",
+        category: "Performance",
+        size: "Compact SUV",
+        seats: '2 Seats'
     },
     {
         id: 9,
@@ -119,7 +151,11 @@ const data = [
         image: LEXUS_IS,
         brand: 'Lexus',
         price: 180000,
-        horsepower: 280
+        horsepower: 280,
+        engine: "5.0L V8",
+        category: "Economy",
+        size: "Small SUV",
+        seats: '4 Seats'
     },
     {
         id: 10,
@@ -128,7 +164,11 @@ const data = [
         image: LEXUS_NX,
         brand: 'Lexus',
         price: 180000,
-        horsepower: 250        
+        horsepower: 250,
+        engine: "5.0L V8",
+        category: "Economy",
+        size: "Compact SUV",
+        seats: '2 Seats'        
     },
     {
         id: 11,
@@ -137,7 +177,11 @@ const data = [
         image: LEXUS_UX,
         brand: 'Lexus',
         price: 180000,
-        horsepower: 230
+        horsepower: 230,
+        engine: "5.0L V8",
+        category: "Economy",
+        size: "SUV",
+        seats: '4 Seats'
     },
     {
         id: 12,
@@ -146,7 +190,11 @@ const data = [
         image: LEXUS_MS,
         brand: 'Lexus',
         price: 180000,
-        horsepower: 280
+        horsepower: 280,
+        engine: "5.0L V8",
+        category: "Economy",
+        size: "SUV",
+        seats: '4 Seats'
     },
     {
         id: 13,
@@ -155,7 +203,11 @@ const data = [
         image: LEXUS_LS,
         brand: 'Lexus',
         price: 180000,
-        horsepower: 280
+        horsepower: 280,
+        engine: "2.3L V4",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 14,
@@ -164,6 +216,11 @@ const data = [
         image: LEXUS_ES,
         brand: 'Lexus',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 15,
@@ -172,6 +229,11 @@ const data = [
         image: LEXUS_OS,
         brand: 'Lexus',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 16,
@@ -180,6 +242,11 @@ const data = [
         image: Camry,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 17,
@@ -188,6 +255,11 @@ const data = [
         image: Corolla,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 18,
@@ -196,6 +268,11 @@ const data = [
         image: Highlander,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 19,
@@ -204,6 +281,11 @@ const data = [
         image: Innova,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 20,
@@ -212,6 +294,11 @@ const data = [
         image: LandCruiser,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 21,
@@ -220,6 +307,11 @@ const data = [
         image: Crown,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 22,
@@ -228,6 +320,11 @@ const data = [
         image: Prius,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 23,
@@ -236,6 +333,11 @@ const data = [
         image: Sienna,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 24,
@@ -244,6 +346,11 @@ const data = [
         image: Tacoma,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 25,
@@ -252,6 +359,11 @@ const data = [
         image: Sequoia,
         brand: 'Toyota',
         price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
        id: 26,
@@ -259,7 +371,12 @@ const data = [
        name: 'Fortuner',
        image: Fortuner,
        brand: 'Toyota',
-       price: 180000
+       price: 180000,
+       horsepower: 280,
+       engine: "3.0L V6",
+       category: "Economy",
+       size: "Sedan",
+       seats: '4 Seats'
     },
     {
         id: 27,
@@ -267,7 +384,12 @@ const data = [
         name: '4Runner',
         image: Runner_4,
         brand: 'Toyota',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 28,
@@ -275,7 +397,12 @@ const data = [
         name: 'Rav 4',
         image: Rav_4,
         brand: 'Toyota',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "3.0L V6",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 29,
@@ -283,7 +410,12 @@ const data = [
         name: 'Supra',
         image: Supra,
         brand: 'Toyota',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "3.0L V8",
+        category: "Sport",
+        size: "Sedan",
+        seats: '2 Seats'
     },
     {
         id: 30,
@@ -291,7 +423,12 @@ const data = [
         name: 'Corolla Cross',
         image: CorollaCross,
         brand: 'Toyota',
-        price: 200000
+        price: 200000,
+        horsepower: 280,
+        engine: "1.5L V4",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 31,
@@ -299,7 +436,12 @@ const data = [
         name: 'Volvo S60',
         image: VolvoS60,
         brand: 'Volvo',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "1.5L V4",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 32,
@@ -307,7 +449,12 @@ const data = [
         name: 'Volvo V60',
         image: VolvoV60,
         brand: 'Volvo',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "1.5L V4",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 33,
@@ -315,7 +462,12 @@ const data = [
         name: 'Volvo XC40',
         image: VolvoXC40,
         brand: 'Volvo',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "1.5L V4",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 34,
@@ -323,7 +475,12 @@ const data = [
         name: 'Volvo XC40',
         image: VolvoXC40,
         brand: 'Volvo',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "1.5L V4",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 35,
@@ -331,7 +488,12 @@ const data = [
         name: 'Volvo XC60',
         image: VolvoXC60,
         brand: 'Volvo',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "1.5L V4",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 36,
@@ -339,7 +501,12 @@ const data = [
         name: 'Volvo XC90',
         image: VolvoXC90,
         brand: 'Volvo',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "1.5L V4",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
     {
         id: 37,
@@ -347,7 +514,12 @@ const data = [
         name: 'Volvo S91',
         image: VolvoXC91,
         brand: 'Volvo',
-        price: 180000
+        price: 180000,
+        horsepower: 280,
+        engine: "1.5L V4",
+        category: "Economy",
+        size: "Sedan",
+        seats: '4 Seats'
     },
 ]
 
