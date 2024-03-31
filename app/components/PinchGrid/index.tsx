@@ -3,7 +3,6 @@
 import { cn } from "@/app/utils";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { useGridContext } from "../CarGrid/context";
-import { useEffect } from "react";
 
 export default function PinchGrid({
   children,
@@ -15,7 +14,7 @@ export default function PinchGrid({
   const { setLevel } = useGridContext();
 
   const setLevelHandler = (scale: number) => {
-    if (scale > 1 && scale <= 2) {
+    if (scale >= 1.5 && scale < 2) {
       setLevel('1')
     }
 
