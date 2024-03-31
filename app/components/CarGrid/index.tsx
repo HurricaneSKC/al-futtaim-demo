@@ -5,6 +5,7 @@ import Link from "next/link";
 import WheelGrid from "../WheelGrid";
 import { GridAnimationProvider } from "./context";
 import CarGridElement from "./CarGridElement";
+import PinchGrid from "../PinchGrid";
 // import CarGridElement from "./CarGridElement";
 
 export default function CarGrid() {
@@ -12,11 +13,13 @@ export default function CarGrid() {
 
   return (
     <GridAnimationProvider>
-      <WheelGrid>
+      {/* <WheelGrid> */}
+      <PinchGrid className="overflow-auto">
         {carData.map((carItem) => (
           <CarGridElement key={carItem.id} carItem={carItem} />
         ))}
-      </WheelGrid>
+      </PinchGrid>
+      {/* </WheelGrid> */}
     </GridAnimationProvider>
   );
 }
