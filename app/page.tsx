@@ -2,13 +2,10 @@
 
 import { useState } from "react";
 import MockCarGrid from "./components/CarGrid";
-import ChatBot from "./components/Chat/ChatBot";
 import Heading from "./components/Heading/Heading";
 import LetsTalkIcoBtn from "@/public/misc/ico-letstalk.svg";
 import Image from "next/image";
-import Button from "./components/ui/Logo";
 import Link from "next/link";
-import AppLogo from "./components/ui/Logo";
 import ChatOverlay from "./components/ChatOverlay";
 
 export default function Home() {
