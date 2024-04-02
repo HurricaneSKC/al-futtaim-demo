@@ -26,7 +26,8 @@ const InitialChatBotMessage = ({ content }: Props) => {
       <div className={`chat-bubble`}>
         {content}
         <div className="py-2"></div>
-        <SuggestedUserPrompt />
+        <SuggestedUserPrompt promptMessage="I am looking for an SUV" />
+        <SuggestedUserPrompt promptMessage="What brands do you have?" />
       </div>
     </div>
   );
