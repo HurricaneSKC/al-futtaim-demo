@@ -38,7 +38,19 @@ import VolvoXC40 from '@/app/assets/mock/volvo/image 41.svg'
 import VolvoXC60 from '@/app/assets/mock/volvo/image 42.svg'
 import VolvoXC90 from '@/app/assets/mock/volvo/image 43.svg'
 import VolvoXC91 from '@/app/assets/mock/volvo/image 44.svg'
-
+export interface ICar {
+    id: number;
+    slug: string;
+    name: string;
+    image: any;
+    brand: string;
+    price: number;
+    horsepower: number;
+    engine: string;
+    category: string;
+    size: string;
+    seats: string;
+};
 const data = [
     {
         id: 1,

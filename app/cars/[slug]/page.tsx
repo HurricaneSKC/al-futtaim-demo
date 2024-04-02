@@ -7,16 +7,23 @@ import { GiSteeringWheel } from "react-icons/gi";
 import { BsFillBrightnessHighFill } from "react-icons/bs";
 import { FaBoxesPacking } from "react-icons/fa6";
 
-import CarProfileImage from "@/app/assets/car-profile/image.svg";
+// import CarProfileImage from "@/app/assets/car-profile/image.svg";
 
 import VehicleCard from "@/app/components/VehicleCard";
+import getMockedCars from "@/app/mockdata/cars";
+import { notFound } from "next/navigation";
 
 export default function CarDetailPage({ params: { slug } }: Props) {
+  const carData = getMockedCars();
+  const found = carData.find(item => item.slug === slug);
+  if (!found) {
+    notFound();
+  }
   // one can do data fetching instead of hardcoding the values;
   return (
     <VehicleCard
-      image={CarProfileImage}
-      briefData={[
+      carData={found}
+      keyInfo={[
         { title: "Electric Range", value: "480km" },
         { title: "Chargin Time", value: "3 hour" },
         { title: "Acceleration", value: "3.6s" },

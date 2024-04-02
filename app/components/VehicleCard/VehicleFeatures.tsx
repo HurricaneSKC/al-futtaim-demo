@@ -1,5 +1,5 @@
 import React from "react";
-import { VehicleFeatureItemProps } from "./types";
+import { VehicleFeatureItem } from "./types";
 import { cn } from "@/app/utils";
 
 function FeatureItem({
@@ -7,7 +7,7 @@ function FeatureItem({
   title,
   description,
   className,
-}: VehicleFeatureItemProps & { className?: string }) {
+}: VehicleFeatureItem & { className?: string }) {
   return (
     <div className={cn("flex justify-start items-center gap-4", className)}>
       <div className="bg-[#EFEFEF] rounded p-4"><Icon size={28} color='#333' /></div>
@@ -23,7 +23,7 @@ export default function VehicleFeatures({
   className,
   data,
 }: {
-  data: VehicleFeatureItemProps[];
+  data: VehicleFeatureItem[];
   className?: string;
 }) {
   return (

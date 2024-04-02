@@ -10,7 +10,7 @@ export const Card = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "card rounded-none w-full h-full bg-base-100 shadow-xl relative",
+        "card rounded-none !w-full !h-full bg-base-100 shadow-xl relative",
         className
       )}
       {...props}
@@ -32,16 +32,17 @@ export const CardHeader = React.forwardRef<
 ))
 CardHeader.displayName = "CardHeader"
 
-type CardImageProps = { alt: string, src: string, placeholder?: 'blur' | 'empty', width?: number, height?: number } & React.HTMLAttributes<HTMLImageElement>;
+type CardImageProps = { alt: string, src: string, placeholder?: 'blur' | 'empty', width?: number, height?: number, fill?: boolean } & React.HTMLAttributes<HTMLImageElement>;
 export const CardImage = React.forwardRef<HTMLImageElement, CardImageProps>(
-  ({ src, alt, className, ...props }, ref) => {
+  ({ src, alt, className, fill, ...props }, ref) => {
     return (
       <Image
         ref={ref}
         className={cn("", className)}
         alt={alt}
         src={src}
-        defaultChecked={false}        
+        defaultChecked={false}      
+        fill={fill}  
         {...props}
       />
     );

@@ -1,7 +1,7 @@
 "use client";
 
 import { HiArrowLeft } from "react-icons/hi2";
-import AppLogo from "../ui/Logo";
+// import AppLogo from "../ui/Logo";
 import { useRouter } from "next/navigation";
 import { cn } from "@/app/utils";
 import HeaderIcon from "./HeaderIcon";
@@ -23,7 +23,7 @@ export default function Header({
   return (
     <div
       className={cn(
-        "flex justify-start items-center w-full px-3 py-2 absolute bg-transparent z-10",
+        "flex justify-start items-center w-full px-3 py-2 absolute left-0 top-0 bg-transparent z-10",
         className
       )}
     >

@@ -15,8 +15,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex justify-center p-6">
-        <div className="artboard artboard-demo phone-3">
+      <body className="flex justify-center">
+        <div className="artboard artboard-demo phone-3 sm:w-auto">
           {children}
         </div>
       </body>
