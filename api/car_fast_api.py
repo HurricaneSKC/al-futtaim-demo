@@ -1,10 +1,10 @@
 from typing import List, Optional
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, parse_obj_as
 import logging
 import pandas as pd
-from .filter_cars_using_prompt_conversation import generate_response_and_update_messages, load_and_preprocess_data
+from filter_cars_using_prompt_conversation import generate_response_and_update_messages, load_and_preprocess_data
+
 
 class Car(BaseModel):
     Brand: str
@@ -32,23 +32,7 @@ class CarResponse(BaseModel):
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000",  # Allow frontend origin
-]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,  # List of allowed origins
-    allow_credentials=True,
-    allow_methods=["*"],  # Allow all methods
-    allow_headers=["*"],  # Allow all headers
-)
-
-@app.get("/api/cars")
-def hello_world():
-    return {"message": "Hello World"}
-
-@app.post("/api/cars", response_model=CarResponse)
+@app.post("/api/cars/", response_model=CarResponse)
 async def get_cars(data: CarPrompt):
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)

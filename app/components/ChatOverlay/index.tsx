@@ -4,14 +4,21 @@ import ChatBot from "../Chat/ChatBot";
 import Header from "../Header";
 import AppLogo from "../ui/Logo";
 
-export default function ChatOverlay({
-  onBackClick,
-}: {
+interface Props {
   onBackClick: () => void;
-}) {
+}
+
+export default function ChatOverlay({ onBackClick }: Props) {
   return (
     <div className="absolute w-full h-full inset-0 bg-white animate-slideIn">
-      <div className="flex flex-col justify-center items-center h-full relative">
+      <div className="flex flex-col justify-center items-center h-full w-full">
+        <div className="flex justify-start items-center w-full px-3 py-2 shadow-md">
+          <HiArrowLeft
+            className="text-black text-xl cursor-pointer"
+            onClick={onBackClick}
+          />
+          <AppLogo className="ml-12" />
+        </div>
         <ChatBot />
       </div>
       <Header

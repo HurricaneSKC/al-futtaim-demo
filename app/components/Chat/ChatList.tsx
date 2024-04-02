@@ -20,8 +20,14 @@ const ChatList = ({ messages, isLoading }: Props) => {
 
   return (
     <div className="chat-messages py-2 flex-1 overflow-y-auto">
-      {messages.map(({ id, role, content }) => (
-        <ChatMessage id={id} key={id} role={role} content={content} />
+      <ChatMessage
+        id={0}
+        key={"starter"}
+        role={"assistant"}
+        content={"Hi, how can I help you?"}
+      />
+      {messages.map(({ role, content }, index) => (
+        <ChatMessage key={index} role={role} content={content} />
       ))}
       {isLoading && <LoadingMessage />}
       <div ref={messagesEndRef}></div>

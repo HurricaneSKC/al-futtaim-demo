@@ -1,4 +1,4 @@
-export interface Cars {
+export default interface Cars {
   Brand: string,
   Model: string,
   Price: number,
