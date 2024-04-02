@@ -6,7 +6,7 @@ import Message from "@/app/entities/Message";
 import carList from "@/app/mockdata/cars.json";
 import ChatList from "./ChatList";
 import MessageInput from "./MessageInput";
-import { DataContext } from "@/app/page";
+import { DataContext } from "@/app/context/dataContext";
 
 const ChatBot = () => {
   const [input, setInput] = useState("");
