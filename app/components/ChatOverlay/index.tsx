@@ -1,5 +1,6 @@
 "use client";
 
+import { HiArrowLeft } from "react-icons/hi2";
 import ChatBot from "../Chat/ChatBot";
 import Header from "../Header";
 import AppLogo from "../ui/Logo";
@@ -27,7 +28,7 @@ export default function ChatOverlay({ onBackClick }: Props) {
         backIconClassname="flex-1"
         className="bg-white shadow-md justify-between items-center"
       >
-        <AppLogo/>
+        <AppLogo />
         <div aria-label="empty" className="flex-1"></div>
       </Header>
     </div>

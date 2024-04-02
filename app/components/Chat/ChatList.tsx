@@ -2,6 +2,7 @@ import Message from "@/app/entities/Message";
 import { useEffect, useRef } from "react";
 import ChatMessage from "./ChatMessage";
 import LoadingMessage from "./LoadingMessage";
+import InitialChatBotMessage from "./InitialChatBotMessage";
 
 interface Props {
   messages: Message[];
@@ -20,12 +21,7 @@ const ChatList = ({ messages, isLoading }: Props) => {
 
   return (
     <div className="chat-messages py-2 flex-1 overflow-y-auto">
-      <ChatMessage
-        id={0}
-        key={"starter"}
-        role={"assistant"}
-        content={"Hi, how can I help you?"}
-      />
+      <InitialChatBotMessage content="Hi, how can I help you today?" />
       {messages.map(({ role, content }, index) => (
         <ChatMessage key={index} role={role} content={content} />
       ))}
