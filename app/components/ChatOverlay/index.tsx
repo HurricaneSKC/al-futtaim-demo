@@ -1,8 +1,8 @@
 "use client";
 
-import AppLogo from "../ui/Logo";
 import ChatBot from "../Chat/ChatBot";
-import { HiArrowLeft } from "react-icons/hi2";
+import Header from "../Header";
+import AppLogo from "../ui/Logo";
 
 export default function ChatOverlay({
   onBackClick,
@@ -11,16 +11,18 @@ export default function ChatOverlay({
 }) {
   return (
     <div className="absolute w-full h-full inset-0 bg-white animate-slideIn">
-      <div className="flex flex-col justify-center items-center h-full">
-        <div className="flex justify-start items-center w-full px-3 py-2 shadow-md">
-          <HiArrowLeft
-            className="text-black text-xl cursor-pointer"
-            onClick={onBackClick}
-          />
-          <AppLogo className="ml-12" />
-        </div>
+      <div className="flex flex-col justify-center items-center h-full relative">
         <ChatBot />
       </div>
+      <Header
+        allowBackNavigation={true}
+        onClick={onBackClick}
+        backIconClassname="flex-1"
+        className="bg-white shadow-md justify-between items-center"
+      >
+        <AppLogo/>
+        <div aria-label="empty" className="flex-1"></div>
+      </Header>
     </div>
   );
 }
