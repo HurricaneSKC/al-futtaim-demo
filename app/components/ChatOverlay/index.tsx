@@ -1,8 +1,8 @@
 "use client";
 
-import AppLogo from "../ui/Logo";
 import ChatBot from "../Chat/ChatBot";
-import { HiArrowLeft } from "react-icons/hi2";
+import Header from "../Header";
+import AppLogo from "../ui/Logo";
 
 interface Props {
   onBackClick: () => void;
@@ -21,6 +21,15 @@ export default function ChatOverlay({ onBackClick }: Props) {
         </div>
         <ChatBot />
       </div>
+      <Header
+        allowBackNavigation={true}
+        onClick={onBackClick}
+        backIconClassname="flex-1"
+        className="bg-white shadow-md justify-between items-center"
+      >
+        <AppLogo/>
+        <div aria-label="empty" className="flex-1"></div>
+      </Header>
     </div>
   );
 }
