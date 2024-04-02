@@ -1,8 +1,4 @@
-import { useRouter } from "next/router";
-import React from "react";
 
-const CarList = () => {
+export default function CarList() {
   return <div>CarList</div>;
 };
-
-export default CarList;

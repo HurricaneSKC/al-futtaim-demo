@@ -1,37 +1,13 @@
 "use client";
 
 import LetsTalkIcoBtn from "@/public/misc/ico-letstalk.svg";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import ChatOverlay from "./components/ChatOverlay";
 import Heading from "./components/Heading/Heading";
-import axios from "axios";
-import Message from "./entities/Message";
-import Cars from "./entities/Cars";
-
-interface DataProps {
-  messages: Message[];
-  cars: Cars[];
-}
-
-interface DataContextType {
-  serverData: DataProps;
-  setData: Dispatch<SetStateAction<DataProps>>;
-  isChatLoading: boolean;
-  setChatLoading: Dispatch<SetStateAction<boolean>>;
-}
-
-export const DataContext = createContext<DataContextType>(
-  {} as DataContextType
-);
+import { DataContext, DataProps } from "./context/dataContext";
 
 const instance = axios.create({
   baseURL: "http://localhost:8000/api",
