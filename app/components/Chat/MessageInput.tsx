@@ -1,6 +1,9 @@
 import { log } from "console";
 import React, { FormEvent } from "react";
 import { HiOutlineMicrophone } from "react-icons/hi2";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
 
 interface Props {
   input: string;
@@ -10,6 +13,24 @@ interface Props {
 }
 
 const MessageInput = ({ handleSubmit, setInput, input, isDisabled }: Props) => {
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition,
+  } = useSpeechRecognition();
+
+  const startListening = () => {
+    console.log("listening");
+    SpeechRecognition.startListening();
+  };
+
+  const stopListening = () => {
+    SpeechRecognition.stopListening;
+    console.log(transcript);
+    setInput(transcript);
+  };
+
   return (
     <form
       action=""
@@ -25,7 +46,15 @@ const MessageInput = ({ handleSubmit, setInput, input, isDisabled }: Props) => {
           value={input}
           disabled={isDisabled}
         />
-        <HiOutlineMicrophone />
+        <p>{listening ? "on" : "off"}</p>
+        <button
+          onMouseDown={startListening}
+          onTouchStart={startListening}
+          onTouchEnd={stopListening}
+          onMouseUp={stopListening}
+        >
+          <HiOutlineMicrophone />
+        </button>
       </label>
     </form>
   );

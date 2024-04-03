@@ -1,4 +1,5 @@
 "use client";
+import "regenerator-runtime/runtime";
 import axios from "axios";
 import "./globals.css";
 import { useEffect, useRef, useState } from "react";
