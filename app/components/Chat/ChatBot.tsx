@@ -27,14 +27,13 @@ const ChatBot = () => {
     setData({
       ...serverData,
       messages: [...serverData.messages, { role: "user", content: input }],
-      cars: [...carList.cars],
     });
     setChatLoading(true);
     setInput("");
   };
 
   return (
-    <div className="p-4 flex flex-col overflow-hidden flex-1 w-full">
+    <div className="p-4 flex flex-col overflow-hidden flex-1 w-full bg-slate-100">
       <ChatList messages={messages} isLoading={isChatLoading} />
       <MessageInput
         handleSubmit={handleSubmit}

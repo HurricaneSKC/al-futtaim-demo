@@ -13,7 +13,7 @@ interface Props {
 const InitialChatBotMessage = ({ content }: Props) => {
   return (
     <div className={`chat chat-start`}>
-      <div className="chat-image avatar">
+      <div className="chat-image avatar bg-white rounded-full">
         <div className="w-10 rounded-full shadow">
           <Image
             src={chatAvatar}
@@ -28,6 +28,7 @@ const InitialChatBotMessage = ({ content }: Props) => {
         <div className="py-2"></div>
         <SuggestedUserPrompt promptMessage="I am looking for an SUV" />
         <SuggestedUserPrompt promptMessage="What brands do you have?" />
+        <SuggestedUserPrompt promptMessage="I want a fast car" />
       </div>
     </div>
   );
