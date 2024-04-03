@@ -1,8 +1,10 @@
 "use client";
+import "regenerator-runtime/runtime";
 import axios from "axios";
 import "./globals.css";
 import { useEffect, useRef, useState } from "react";
 import { DataContext, DataProps } from "./context/dataContext";
+import cars from "./mockdata/cars.json";
 
 const instance = axios.create({
   baseURL: "http://localhost:8000/api",
@@ -15,7 +17,7 @@ const initialiseData = {
       content: "",
     },
   ],
-  cars: [],
+  cars: [...cars.cars],
 };
 
 export default function RootLayout({
