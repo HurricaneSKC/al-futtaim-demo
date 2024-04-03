@@ -60,26 +60,31 @@ async def get_cars(data: CarPrompt):
 
     else:
         logger.info(f' else ')
-        logger.info(f' type :{type(data.cars)}')
-        logger.info(f' type 0 :{type(data.cars[0])}')
+        # logger.info(f' type :{type(data.cars)}')
+        # logger.info(f' type 0 :{type(data.cars[0])}')
 
         cars_dict = [car.__dict__ for car in data.cars]
         df = pd.DataFrame(cars_dict)
 
 
     messages_dic = [messages.__dict__ for messages in data.messages]
-    logger.info(f'messages_dic: {messages_dic}')
-    logger.info(f'data.messages: {data.messages}')
+    # logger.info(f'messages_dic: {messages_dic}')
+    # logger.info(f'data.messages: {data.messages}')
 
 
-    logger.info(f'df columns : {df.columns}')
-    logger.info(f'df  : {df.shape}')
+    # logger.info(f'df columns : {df.columns}')
+    # logger.info(f'df  : {df.shape}')
 
+
+    logger.info(f'before  generate_response_and_update_messages')
 
     output_df, messages = generate_response_and_update_messages(messages_dic, df)
 
-    logger.info(f'messages : {messages}')
-    logger.info(f'output_df : {output_df.shape}')
+    logger.info(f'after  generate_response_and_update_messages')
+
+
+    # logger.info(f'messages : {messages}')
+    # logger.info(f'output_df : {output_df.shape}')
 
     output_dic = output_df.to_dict('records')
     cars_data = parse_obj_as(List[Car], output_dic)
