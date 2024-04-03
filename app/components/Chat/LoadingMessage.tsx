@@ -16,8 +16,10 @@ const LoadingMessage = () => {
       </div>
       <div className="chat-header">assistant</div>
       <div className="chat-bubble">
-        Give me a second while I check
-        <span className="loading loading-dots loading-sm ml-2"></span>
+        <p>
+          Give me a second while I check
+          <span className="loading loading-bars loading-sm ml-2 relative top-1"></span>
+        </p>
       </div>
     </div>
   );
