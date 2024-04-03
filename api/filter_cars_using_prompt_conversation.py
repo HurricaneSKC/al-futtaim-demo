@@ -174,25 +174,32 @@ def descriptive_filtering(df, user_prompt):
     # condensed data
     # data = '{"d":"Honda,Pilot,149858.33,6.2,280,SUV,s,Lux,3V,HP;Jeep,GC,204908.33,6.16,393.66,SUV,s,Sport,6V,JGC"}'
 
-    # Load the data as dictionary
-    data_dict = json.loads(output)
 
-    logger.info(f'data_dict : {data_dict}')
+    match = re.search(r'\{.*\}', output, re.DOTALL)
+    if match:
+        json_str = match.group()
 
-    # Key names for each attribute in the original cars data
-    keys = ["Brand", "Model", "Price", "Acceleration", "Horsepower", "Type", "Size", "Category", "Engine", "Car_Name"]
+        # Load the data as dictionary
+        data_dict = json.loads(json_str)
 
-    # Split the string using semicolon and comma to rebuild the original data structure.
-    cars_data = [dict(zip(keys, car.split(','))) for car in data_dict['d'].split(';')]
-    logger.info(f'cars_data : {cars_data}')
+        logger.info(f'data_dict : {data_dict}')
 
-    # Convert the list of dictionaries into a DataFrame
-    output_df = pd.DataFrame(cars_data)
-    logger.info(f' after filtering output_df : {output_df.to_string()} ')
+        # Key names for each attribute in the original cars data
+        keys = ["Brand", "Model", "Price", "Acceleration", "Horsepower", "Type", "Size", "Category", "Engine", "Car_Name"]
 
-    ###################### NEW WAY ######################
+        # Split the string using semicolon and comma to rebuild the original data structure.
+        cars_data = [dict(zip(keys, car.split(','))) for car in data_dict['d'].split(';')]
+        logger.info(f'cars_data : {cars_data}')
 
-    return output_df
+        # Convert the list of dictionaries into a DataFrame
+        output_df = pd.DataFrame(cars_data)
+        logger.info(f' after filtering output_df : {output_df.to_string()} ')
+
+        ###################### NEW WAY ######################
+
+        return output_df
+    
+    return df
 
 
 
@@ -218,32 +225,40 @@ def descriptive_filtering(df, user_prompt):
 
 
 def generate_response_and_update_messages(messages, df):
+
     initial_prompt = messages[-1]['content']
 
-    logger.info(f'before  descriptive_filtering')
+    logger.info(f'initial_prompt : {initial_prompt} ')
 
-    if df.shape[0] > 1:
-        output_df = descriptive_filtering(df, initial_prompt)
-    else:
-        logger.info(f'inside else df.shape[0] > 1 ')
-        output_df = df
+    if  messages[-1]['role'] != 'system':
 
+        logger.info(f'before  descriptive_filtering')
 
-    if output_df.shape[0] != 0:
-        response_prompt = generate_response_prompt(output_df)
-
-        messages[0] = {"role": "system", "content": response_prompt}
-        # print(f"{messages[0]['role'].title()}: {messages[0]['content']}\n\n")
-
-        messages = invoke_model_response_prompt(messages)
-
-        messages[0] = {"role": "system", "content": ""}
+        if df.shape[0] > 1:
+            output_df = descriptive_filtering(df, initial_prompt)
+        else:
+            logger.info(f'inside else df.shape[0] > 1 ')
+            output_df = df
 
 
+        if output_df.shape[0] != 0:
+            response_prompt = generate_response_prompt(output_df)
 
-    logger.info(f'end of generate_response_and_update_messages')
+            messages[0] = {"role": "system", "content": response_prompt}
+            # print(f"{messages[0]['role'].title()}: {messages[0]['content']}\n\n")
 
-    return output_df, messages
+            messages = invoke_model_response_prompt(messages)
+
+            messages[0] = {"role": "system", "content": ""}
+
+
+
+        logger.info(f'end of generate_response_and_update_messages')
+
+        return output_df, messages
+    
+    return df, messages
+
 
 
 def invoke_model_prompt(prompt: str, max_tokens: int = 1000, temperature: float = 0.0):
