@@ -27,7 +27,6 @@ const ChatBot = () => {
     setData({
       ...serverData,
       messages: [...serverData.messages, { role: "user", content: input }],
-      cars: [...carList.cars],
     });
     setChatLoading(true);
     setInput("");
