@@ -28,6 +28,7 @@ const InitialChatBotMessage = ({ content }: Props) => {
         <div className="py-2"></div>
         <SuggestedUserPrompt promptMessage="I am looking for an SUV" />
         <SuggestedUserPrompt promptMessage="What brands do you have?" />
+        <SuggestedUserPrompt promptMessage="I want a fast car" />
       </div>
     </div>
   );
