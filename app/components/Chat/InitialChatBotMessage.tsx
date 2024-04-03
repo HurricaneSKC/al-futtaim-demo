@@ -13,7 +13,7 @@ interface Props {
 const InitialChatBotMessage = ({ content }: Props) => {
   return (
     <div className={`chat chat-start`}>
-      <div className="chat-image avatar">
+      <div className="chat-image avatar bg-white rounded-full">
         <div className="w-10 rounded-full shadow">
           <Image
             src={chatAvatar}

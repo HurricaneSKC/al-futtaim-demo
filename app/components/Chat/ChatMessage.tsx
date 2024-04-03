@@ -9,7 +9,7 @@ import Link from "next/link";
 const ChatMessage = ({ id, role, content, image }: Message) => {
   return (
     <div className={`chat ${role === "user" ? "chat-end" : "chat-start"}`}>
-      <div className="chat-image avatar">
+      <div className="chat-image avatar bg-white rounded-full">
         <div className="w-10 rounded-full shadow">
           {role !== "user" ? (
             <Image src={chatAvatar} alt={role} className="!object-scale-down" />
