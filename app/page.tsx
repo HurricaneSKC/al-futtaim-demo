@@ -1,13 +1,13 @@
 "use client";
 
 import LetsTalkIcoBtn from "@/public/misc/ico-letstalk.svg";
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import ChatOverlay from "./components/ChatOverlay";
 import Heading from "./components/Heading/Heading";
-import { DataContext, DataProps } from "./context/dataContext";
+import Button from "./components/ui/Button";
+import AiLogo from "./components/ui/AiLogo";
 
 export default function Home() {
   const [showChatOverlay, setShowChatOverlay] = useState(false);
@@ -24,20 +24,14 @@ export default function Home() {
         <div className="h-full w-full flex flex-col justify-between relative">
           <Heading />
           <div className="flex flex-col gap-4 w-full px-6 pb-3">
-            <button
-              className="btn btn-primary w-full"
+            <Button
               onClick={() => {
                 setShowChatOverlay(true);
               }}
             >
-              <Image
-                src={LetsTalkIcoBtn}
-                alt="Lets Talk Action Icon"
-                width={40}
-                height={40}
-              />
+              <AiLogo />
               <p className="mr-10">Let&apos;s Chat</p>
-            </button>
+            </Button>
             <Link href="/explore" className="w-full">
               <button className="btn btn-secondary w-full">Explore</button>
             </Link>

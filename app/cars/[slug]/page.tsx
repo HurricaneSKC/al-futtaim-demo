@@ -1,3 +1,5 @@
+'use client';
+
 interface Props {
   params: { slug: string };
 }
@@ -12,10 +14,13 @@ import { FaBoxesPacking } from "react-icons/fa6";
 import VehicleCard from "@/app/components/VehicleCard";
 import getMockedCars from "@/app/mockdata/cars";
 import { notFound } from "next/navigation";
+import { useDataContext } from "@/app/context/dataContext";
 
 export default function CarDetailPage({ params: { slug } }: Props) {
-  const carData = getMockedCars();
-  const found = carData.find(item => item.slug === slug);
+  // const carData = getMockedCars();
+  // const found = carData.find(item => item.slug === slug);
+  const { serverData } = useDataContext();
+  const found = serverData.cars.find(item => item.Car_Name === slug);
   if (!found) {
     notFound();
   }

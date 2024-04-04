@@ -1,21 +1,22 @@
 "use client";
 
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 import Message from "@/app/entities/Message";
 import carList from "@/app/mockdata/cars.json";
 import ChatList from "./ChatList";
 import MessageInput from "./MessageInput";
-import { DataContext } from "@/app/context/dataContext";
+import { useDataContext } from "@/app/context/dataContext";
+import { carDataAdapter } from "@/app/context/utils";
 
 const ChatBot = () => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
 
   const { serverData, setData, isChatLoading, setChatLoading } =
-    useContext(DataContext);
+    useDataContext();
 
-  console.log("serverData", serverData);
+  // console.log("serverData", serverData);
 
   useEffect(() => {
     setMessages(serverData.messages.slice(1));
@@ -27,7 +28,7 @@ const ChatBot = () => {
     setData({
       ...serverData,
       messages: [...serverData.messages, { role: "user", content: input }],
-      cars: [...carList.cars],
+      cars: [...carDataAdapter(carList.cars)],
     });
     setChatLoading(true);
     setInput("");

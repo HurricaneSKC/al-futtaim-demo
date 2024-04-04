@@ -10,3 +10,5 @@ export default interface Cars {
   Engine: string,
   Car_Name: string
 }
+
+export type CustomCar = Cars & { image: string };

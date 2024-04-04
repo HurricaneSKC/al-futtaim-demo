@@ -15,8 +15,8 @@ import VehicleKeyInfo from "./VehicleKeyInfo";
 import { VehicleKeyInfoProps, VehicleFeatureItem } from "./types";
 import VehicleGallery from "./VehicleGallery";
 import VehicleFeatures from "./VehicleFeatures";
-import { ICar } from "@/app/mockdata/cars";
 import { formatPrice } from "@/app/utils";
+import { CustomCar } from "@/app/entities/Cars";
 
 export default function VehicleCard({
   keyInfo,
@@ -25,7 +25,7 @@ export default function VehicleCard({
 }: {
   keyInfo: VehicleKeyInfoProps;
   featureData: VehicleFeatureItem[];
-  carData: ICar;
+  carData: CustomCar;
 }) {
   return (
     <Card>
@@ -48,9 +48,9 @@ export default function VehicleCard({
           </div>
         </Header>
         <CardTitle className="absolute bottom-4 text-4xl text-white left-2 flex flex-col">
-          <span className="self-start">{carData.brand}</span>
+          <span className="self-start">{carData.Brand}</span>
           <span className="text-xs text-[#f5e0e0]">
-            From {formatPrice(carData.price)}
+            From {formatPrice(carData.Price)}
           </span>
         </CardTitle>
       </CardHeader>
