@@ -37,21 +37,24 @@ const MessageInput = ({ handleSubmit, setInput, input, isDisabled }: Props) => {
       onSubmit={(e) => handleSubmit(e)}
       className="flex-none mt-auto"
     >
-      <label className="input input-bordered flex items-center gap-2">
+      <label className="flex items-center gap-2">
         <input
           onChange={(e) => setInput(e.target.value)}
           type="text"
-          className="grow"
-          placeholder="Chat"
+          className="grow input shadow"
+          placeholder="Type your question"
           value={input}
           disabled={isDisabled}
         />
-        <p>{listening ? "on" : "off"}</p>
+        {/* <p>{listening ? "on" : "off"}</p> */}
+
         <button
           onMouseDown={startListening}
           onTouchStart={startListening}
           onTouchEnd={stopListening}
           onMouseUp={stopListening}
+          disabled={isDisabled}
+          className="rounded-full w-12 h-12 bg-white flex justify-center items-center shadow"
         >
           <HiOutlineMicrophone />
         </button>

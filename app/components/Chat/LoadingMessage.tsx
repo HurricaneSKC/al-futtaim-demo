@@ -6,7 +6,7 @@ const LoadingMessage = () => {
   return (
     <div className="chat chat-start">
       <div className="chat-image avatar">
-        <div className="w-10 rounded-full shadow">
+        <div className="w-10 rounded-full shadow bg-white">
           <Image
             src={chatAvatar}
             alt={"assistant"}
