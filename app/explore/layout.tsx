@@ -1,4 +1,9 @@
+"use client";
+
 import { Metadata } from "next";
+import Footer from "../components/Footer";
+import { useState } from "react";
+import ChatOverlay from "../components/ChatOverlay";
 
 export const metadata: Metadata = {
   viewport: {
@@ -14,9 +19,15 @@ export default function ExploreLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [showChatOverlay, setShowChatOverlay] = useState(false);
+
   return (
-    <>
-      {children}
-    </>
+    <main className="flex flex-col justify-start items-center h-full">
+      <div className="flex-1">{children}</div>
+      <Footer className="self-end" onClick={() => setShowChatOverlay(true)} />
+      {showChatOverlay && (
+        <ChatOverlay onBackClick={() => setShowChatOverlay(false)} />
+      )}
+    </main>
   );
 }

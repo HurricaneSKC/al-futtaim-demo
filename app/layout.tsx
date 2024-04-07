@@ -1,9 +1,11 @@
 "use client";
-import { DataProvider } from "./context/dataContext";
+import "regenerator-runtime/runtime";
 // import axios from "axios";
 import "./globals.css";
 // import { useEffect, useRef, useState } from "react";
 // import { DataContext, DataProps } from "./context/dataContext";
+// import cars from "./mockdata/cars.json";
+import { DataProvider } from "./context/dataContext";
 
 // const instance = axios.create({
 //   baseURL: "http://localhost:8000/api",

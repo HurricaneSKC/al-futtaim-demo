@@ -17,7 +17,6 @@ const SuggestedUserPrompt = ({ promptMessage }: Props) => {
         ...serverData.messages,
         { role: "user", content: promptMessage },
       ],
-      cars: [...carList.cars],
     });
     setChatLoading(true);
   };

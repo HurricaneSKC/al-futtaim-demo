@@ -35,7 +35,7 @@ const ChatBot = () => {
   };
 
   return (
-    <div className="p-4 flex flex-col overflow-hidden flex-1 w-full">
+    <div className="p-4 flex flex-col overflow-hidden flex-1 w-full bg-slate-100">
       <ChatList messages={messages} isLoading={isChatLoading} />
       <MessageInput
         handleSubmit={handleSubmit}
