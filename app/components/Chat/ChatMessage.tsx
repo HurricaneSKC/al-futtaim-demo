@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Message from "../../entities/Message";
 import chatAvatar from "@/public/chatAvatar.png";
 import { RxAvatar } from "react-icons/rx";
-import car from "@/public/70c55411dde24c75a6268cc60823bfaa.jpg";
-import Link from "next/link";
+import { DataContext } from "@/app/context/dataContext";
 
 const ChatMessage = ({ id, role, content, image }: Message) => {
+  const { setShowChatOverlay } = useContext(DataContext);
   return (
     <div className={`chat ${role === "user" ? "chat-end" : "chat-start"}`}>
       <div className="chat-image avatar bg-white rounded-full">
@@ -31,9 +31,12 @@ const ChatMessage = ({ id, role, content, image }: Message) => {
           </div>
         )}
         {role !== "user" && (
-          <Link href={"/explore"} className="btn my-1">
+          <button
+            onClick={() => setShowChatOverlay(false)}
+            className="btn my-2"
+          >
             Would you like to see the options?
-          </Link>
+          </button>
         )}
       </div>
     </div>

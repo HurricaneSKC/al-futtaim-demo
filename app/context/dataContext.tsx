@@ -14,6 +14,7 @@ import Message from "../entities/Message";
 import Cars, { CustomCar } from "../entities/Cars";
 import instance from "../client";
 import { carDataAdapter } from "./utils";
+import cars from "../mockdata/cars.json";
 
 export interface DataProps {
   messages: Message[];
@@ -25,6 +26,8 @@ interface DataContextType {
   setData: Dispatch<SetStateAction<DataProps>>;
   isChatLoading: boolean;
   setChatLoading: Dispatch<SetStateAction<boolean>>;
+  showChatOverlay: boolean;
+  setShowChatOverlay: Dispatch<SetStateAction<boolean>>;
 }
 
 export const DataContext = createContext<DataContextType>(
@@ -38,13 +41,14 @@ const initialiseData = {
       content: "",
     },
   ],
-  cars: [],
+  cars: carDataAdapter([...cars.cars]),
 };
 
 function DataProvider({ children }: { children: React.ReactNode }) {
   const [data, setData] = useState<DataProps>(initialiseData);
   const [serverData, setServerData] = useState<DataProps>(initialiseData);
   const [isChatLoading, setChatLoading] = useState(false);
+  const [showChatOverlay, setShowChatOverlay] = useState(false);
   const hasPageBeenRendered = useRef(false);
   useEffect(() => {
     const controller = new AbortController();
@@ -53,7 +57,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
       instance
         .post<DataProps>("/cars", data, { signal: controller.signal })
         .then((res) => {
-          console.log('received data', res.data);
+          console.log("received data", res.data);
           setServerData({ ...res.data, cars: carDataAdapter(res.data.cars) });
           setChatLoading(false);
         })
@@ -65,7 +69,14 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     return () => controller.abort();
   }, [data]);
 
-  const contextValue = { serverData, setData, isChatLoading, setChatLoading };
+  const contextValue = {
+    serverData,
+    setData,
+    isChatLoading,
+    setChatLoading,
+    showChatOverlay,
+    setShowChatOverlay,
+  };
   return (
     <DataContext.Provider value={contextValue}>{children}</DataContext.Provider>
   );
