@@ -4,9 +4,15 @@ import Message from "../../entities/Message";
 import chatAvatar from "@/public/chatAvatar.png";
 import { RxAvatar } from "react-icons/rx";
 import { DataContext } from "@/app/context/dataContext";
+import { useRouter } from "next/navigation";
 
 const ChatMessage = ({ id, role, content, image }: Message) => {
+  const router = useRouter();
   const { setShowChatOverlay } = useContext(DataContext);
+  const closeChat = () => {
+    router.push("/explore");
+    setShowChatOverlay(false);
+  };
   return (
     <div className={`chat ${role === "user" ? "chat-end" : "chat-start"}`}>
       <div className="chat-image avatar bg-white rounded-full">
@@ -31,11 +37,8 @@ const ChatMessage = ({ id, role, content, image }: Message) => {
           </div>
         )}
         {role !== "user" && (
-          <button
-            onClick={() => setShowChatOverlay(false)}
-            className="btn my-2"
-          >
-            Would you like to see the options?
+          <button onClick={closeChat} className="btn my-2">
+            See the options
           </button>
         )}
       </div>

@@ -32,7 +32,7 @@ export default function ExploreLayout({
   return (
     <main className="flex flex-col justify-start items-center h-full">
       <div className="flex-1">{children}</div>
-      <Footer className="self-end" onClick={() => setShowChatOverlay(true)} />
+      <Footer className="self-end" />
       {showChatOverlay && (
         <ChatOverlay onBackClick={() => setShowChatOverlay(false)} />
       )}

@@ -3,45 +3,48 @@
 import LetsTalkIcoBtn from "@/public/misc/ico-letstalk.svg";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ChatOverlay from "./components/ChatOverlay";
 import Heading from "./components/Heading/Heading";
 import Button from "./components/ui/Button";
 import AiLogo from "./components/ui/AiLogo";
+import { DataContext } from "./context/dataContext";
+import Footer from "./components/Footer";
+import car from "@/public/HomepageImage.jpg";
+import logoWhite from "@/public/logo-white.png";
 
 export default function Home() {
-  const [showChatOverlay, setShowChatOverlay] = useState(false);
+  const { showChatOverlay, setShowChatOverlay } = useContext(DataContext);
 
   return (
     <main className="h-full w-full relative">
-      {/* <div className="bg-white h-full w-full">
-          <MockCarGrid />
-        </div> */}
       <div className="absolute h-full w-full top-0 bg-slate-100/90">
-        {/* white gradient overlay */}
-        <div className="absolute w-full h-[60%] bg-gradient-to-b from-white" />
-        {/* landing screen content */}
         <div className="h-full w-full flex flex-col justify-between relative">
-          <Heading />
-          <div className="flex flex-col gap-4 w-full px-6 pb-3">
-            <Button
-              onClick={() => {
-                setShowChatOverlay(true);
-              }}
-            >
-              <AiLogo />
-              <p className="mr-10">Let&apos;s Chat</p>
-            </Button>
-            <Link href="/explore" className="w-full">
-              <button className="btn btn-secondary w-full">Explore</button>
-            </Link>
+          <div className="absolute w-full top-16 h-[73%] flex flex-col justify-between items-center">
+            <Image src={logoWhite} alt={""} />
+            <div className="flex flex-col">
+              <Link href="/explore" className="btn btn-primary mb-2">
+                Explore our vehicles
+              </Link>
+              <button
+                onClick={() => {
+                  setShowChatOverlay(true);
+                }}
+                className="btn btn-neutral"
+              >
+                <AiLogo />
+                <p className="mr-10">Let&apos;s Chat</p>
+              </button>
+            </div>
           </div>
+          <Image className="object-cover h-full" src={car} alt={""}></Image>
         </div>
       </div>
       {/* chat overlay */}
       {showChatOverlay && (
         <ChatOverlay onBackClick={() => setShowChatOverlay(false)} />
       )}
+      <Footer />
     </main>
   );
 }
