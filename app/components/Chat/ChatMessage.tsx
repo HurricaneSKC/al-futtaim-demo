@@ -38,7 +38,7 @@ const ChatMessage = ({ id, role, content, image }: Message) => {
         )}
         {role !== "user" && (
           <button onClick={closeChat} className="btn my-2">
-            See the options
+            You can click me to see the options
           </button>
         )}
       </div>
