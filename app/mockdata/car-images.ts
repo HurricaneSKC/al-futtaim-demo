@@ -8,13 +8,13 @@ import Gladiator from "@/app/assets/mock/jeep/image 31.svg";
 import GrandCherokee from "@/app/assets/mock/jeep/image 32.svg";
 import Wrangler from "@/app/assets/mock/jeep/image 33.svg";
 
-import LEXUS_IS from "@/app/assets/mock/lexus/image 23.svg";
-import LEXUS_NX from "@/app/assets/mock/lexus/image 24.svg";
-import LEXUS_UX from "@/app/assets/mock/lexus/image 25.svg";
-import LEXUS_MS from "@/app/assets/mock/lexus/image 26.svg";
-import LEXUS_LS from "@/app/assets/mock/lexus/image 27.svg";
-import LEXUS_ES from "@/app/assets/mock/lexus/image 28.svg";
-import LEXUS_OS from "@/app/assets/mock/lexus/image 29.svg";
+import IS from "@/app/assets/mock/lexus/image 23.svg";
+import NX from "@/app/assets/mock/lexus/image 24.svg";
+import UX from "@/app/assets/mock/lexus/image 25.svg";
+import MS from "@/app/assets/mock/lexus/image 26.svg";
+import LS from "@/app/assets/mock/lexus/image 27.svg";
+import ES from "@/app/assets/mock/lexus/image 28.svg";
+import OS from "@/app/assets/mock/lexus/image 29.svg";
 
 import Camry from "@/app/assets/mock/toyota/image 10.svg";
 import Corolla from "@/app/assets/mock/toyota/image 11.svg";
@@ -32,29 +32,28 @@ import Fortuner from "@/app/assets/mock/toyota/image 22.svg";
 import Supra from "@/app/assets/mock/toyota/image 3.svg";
 import CorollaCross from "@/app/assets/mock/toyota/image 4.svg";
 
-import VolvoS60 from "@/app/assets/mock/volvo/image 39.svg";
-import VolvoV60 from "@/app/assets/mock/volvo/image 40.svg";
-import VolvoXC40 from "@/app/assets/mock/volvo/image 41.svg";
-import VolvoXC60 from "@/app/assets/mock/volvo/image 42.svg";
-import VolvoXC90 from "@/app/assets/mock/volvo/image 43.svg";
-import VolvoXC91 from "@/app/assets/mock/volvo/image 44.svg";
+import S60 from "@/app/assets/mock/volvo/image 39.svg";
+import V60 from "@/app/assets/mock/volvo/image 40.svg";
+import XC40 from "@/app/assets/mock/volvo/image 41.svg";
+import XC60 from "@/app/assets/mock/volvo/image 42.svg";
+import XC90 from "@/app/assets/mock/volvo/image 43.svg";
+import XC91 from "@/app/assets/mock/volvo/image 44.svg";
 
-export const ALL_IMAGE = [
+export const ALL_IMAGE = {
   Challenger,
   Charger,
   Durango,
   GrandCaravan,
-  Cherokee,
   Gladiator,
   GrandCherokee,
   Wrangler,
-  LEXUS_IS,
-  LEXUS_NX,
-  LEXUS_UX,
-  LEXUS_MS,
-  LEXUS_LS,
-  LEXUS_ES,
-  LEXUS_OS,
+  IS,
+  NX,
+  UX,
+  MS,
+  LS,
+  ES,
+  OS,
   Camry,
   Corolla,
   Crown,
@@ -70,10 +69,10 @@ export const ALL_IMAGE = [
   Fortuner,
   Supra,
   CorollaCross,
-  VolvoS60,
-  VolvoV60,
-  VolvoXC40,
-  VolvoXC60,
-  VolvoXC90,
-  VolvoXC91,
-];
+  S60,
+  V60,
+  XC40,
+  XC60,
+  XC90,
+  XC91,
+};

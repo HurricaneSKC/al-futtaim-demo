@@ -2,19 +2,16 @@ import Cars, { CustomCar } from "../entities/Cars";
 import { ALL_IMAGE } from "../mockdata/car-images";
 
 export function carDataAdapter(carList: Cars[]) {
-    console.log("carList",carList);
-    console.log("All images",ALL_IMAGE);
-    
-    
     const transformed = carList.map((item) => {
+        console.log('item Model', ALL_IMAGE[`${[item.Model][0]}`])
+        
+        const imageCar = ALL_IMAGE[`${[item.Model][0]}`] === undefined ? ALL_IMAGE["XC91"] : ALL_IMAGE[`${[item.Model][0]}`]
+        
         return {
             ...item,
-            image: ALL_IMAGE[Math.floor(Math.random() * ALL_IMAGE.length)]
+            image: imageCar
         } as CustomCar
     })
-
-    console.log("transformed", transformed);
-    
 
     return transformed;
 }
