@@ -52,12 +52,10 @@ function DataProvider({ children }: { children: React.ReactNode }) {
   const hasPageBeenRendered = useRef(false);
   useEffect(() => {
     const controller = new AbortController();
-    // console.log("data", data);
     if (hasPageBeenRendered.current) {
       instance
         .post<DataProps>("/cars", data, { signal: controller.signal })
         .then((res) => {
-          console.log("received data", res.data);
           setServerData({ ...res.data, cars: carDataAdapter(res.data.cars) });
           setChatLoading(false);
         })

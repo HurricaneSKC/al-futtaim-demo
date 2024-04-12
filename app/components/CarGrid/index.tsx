@@ -12,8 +12,7 @@ export default function CarGrid() {
   // const carData = useMemo(() => getMockedCars(), []);
 
   const { serverData } = useDataContext();
-  console.log("Explore serverData", serverData.cars);
-  
+
   if (!serverData.cars || serverData.cars.length <= 0) {
     return (
       <div className="flex justify-center items-center h-full">
@@ -21,7 +20,7 @@ export default function CarGrid() {
           Car Suggestions by our AI will be shown here
         </h1>
       </div>
-    )
+    );
   }
   return (
     <GridAnimationProvider>
