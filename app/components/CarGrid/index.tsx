@@ -22,10 +22,11 @@ export default function CarGrid() {
       </div>
     );
   }
+  const dups = serverData.cars.concat(serverData.cars.slice());
   return (
     <GridAnimationProvider>
       <PinchGrid className="relative">
-        {serverData.cars.map((carItem, idx) => (
+        {dups.map((carItem, idx) => (
           <CarGridElement key={idx} carItem={carItem} />
         ))}
       </PinchGrid>

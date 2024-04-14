@@ -30,8 +30,8 @@ export default function ExploreLayout({
   const { showChatOverlay, setShowChatOverlay } = useContext(DataContext);
 
   return (
-    <main className="flex flex-col justify-start items-center h-full">
-      <div className="flex-1">{children}</div>
+    <main className="flex flex-col justify-start items-center h-full w-full">
+      <div className="flex-1 w-full">{children}</div>
       <Footer className="self-end" />
       {showChatOverlay && (
         <ChatOverlay onBackClick={() => setShowChatOverlay(false)} />

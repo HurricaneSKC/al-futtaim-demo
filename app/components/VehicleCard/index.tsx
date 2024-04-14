@@ -15,20 +15,22 @@ import VehicleKeyInfo from "./VehicleKeyInfo";
 import { VehicleKeyInfoProps, VehicleFeatureItem } from "./types";
 import VehicleGallery from "./VehicleGallery";
 import VehicleFeatures from "./VehicleFeatures";
-import { formatPrice } from "@/app/utils";
+import { cn, formatPrice } from "@/app/utils";
 import { CustomCar } from "@/app/entities/Cars";
 
 export default function VehicleCard({
   keyInfo,
   featureData,
   carData,
+  className
 }: {
   keyInfo: VehicleKeyInfoProps;
   featureData: VehicleFeatureItem[];
   carData: CustomCar;
+  className?: string
 }) {
   return (
-    <Card>
+    <Card className={cn('', className)}>
       <CardHeader className="relative bg-emerald-400">
         <CardImage src={carData.image} alt="Shoes" width={414} height={390} />
         <Header

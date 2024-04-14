@@ -1,5 +1,3 @@
-"use client";
-
 import CarGrid from "@/app/components/CarGrid";
 import Header from "../components/Header";
 import AppLogo from "../components/ui/Logo";

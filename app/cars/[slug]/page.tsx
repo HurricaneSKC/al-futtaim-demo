@@ -20,13 +20,15 @@ export default function CarDetailPage({ params: { slug } }: Props) {
   // const carData = getMockedCars();
   // const found = carData.find(item => item.slug === slug);
   const { serverData } = useDataContext();
-  const found = serverData.cars.find(item => item.Car_Name === slug);
+  const found = serverData.cars.find(item => item.Car_Name === decodeURIComponent(slug));
+  console.log('found', found);
   if (!found) {
     notFound();
   }
   // one can do data fetching instead of hardcoding the values;
   return (
     <VehicleCard
+      className="overflow-y-auto"
       carData={found}
       keyInfo={[
         { title: "Electric Range", value: "480km" },

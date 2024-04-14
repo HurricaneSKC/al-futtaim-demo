@@ -34,7 +34,7 @@ export default function PinchGrid({
       const scale = ref.state.scale;
       setLevelHandler(scale);
     }}>
-      <TransformComponent wrapperClass="overflow-auto max-h-[100%]">
+      <TransformComponent wrapperClass="overflow-auto max-h-[97vh]">
         <div className={cn("grid grid-cols-4 gap-0", className)}>
           {children}
         </div> 
