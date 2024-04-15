@@ -39,6 +39,7 @@ export default function CarGridElement({
         <CarBasicInfo
           size={carItem.Size}
           brand={carItem.Brand}
+          model={carItem.Model}
           className="absolute top-0 left-[3px] animate-slideIn"
         />
         <Image
