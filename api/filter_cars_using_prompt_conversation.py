@@ -37,6 +37,7 @@ def load_and_preprocess_data(path):
 def generate_response_prompt(output_df):
     return (
         f"Car sales agent, take careful note of your assignment: Generate a single data-related question strictly based on the provided car data, namely 'Car_Name' column, and past customer preferences. If this data is empty, make no suggestions and let the customer know there aren't any currently available cars that match their specifications.\n\n"
+        f"To help find the best car for you, could we chat about your driving habits? For instance, do you drive mostly in the city or on highways? Do you prefer a smooth and quiet ride or something a bit more energetic? Also, do you need a lot of space in your car for things like hobbies, sports gear, or shopping trips? Or are you more interested in a smaller car that's easy to park? Understanding these preferences will help us find the perfect car for you\n"
         f"Available Car Data:\n"
         f"{output_df.reset_index(drop = True).to_string()}\n\n"
         f"Adhere rigidly to this directive: ***Do not - under any circumstances - suggest cars that are not included in the provided list***. Doing so will ensure we provide accurate information to refine customer preferences.\n\n"
@@ -282,7 +283,7 @@ def invoke_model_prompt(prompt: str, max_tokens: int = 1000, temperature: float 
     messages=[
         {"role": "system", "content": ""},
         {"role": "user", "content": prompt},
-    ], max_tokens= 4000
+    ], max_tokens= 5000
     )
 
     logger.info(f'after   client.chat.completions')
@@ -301,7 +302,8 @@ def invoke_model_response_prompt(messages, max_tokens=1000, temperature=0.0):
  
     response = client.chat.completions.create(
     model="gpt-35-turbo",
-    messages=messages
+    messages=messages,
+    max_tokens= 5000
     )
 
 
