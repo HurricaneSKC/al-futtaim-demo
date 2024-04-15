@@ -277,7 +277,7 @@ def invoke_model_prompt(prompt: str, max_tokens: int = 1000, temperature: float 
 
  
     response = client.chat.completions.create(
-    model="gpt-4-32k",
+    model="gpt-35-turbo",
     temperature= 0,
     messages=[
         {"role": "system", "content": ""},
@@ -300,7 +300,7 @@ def invoke_model_response_prompt(messages, max_tokens=1000, temperature=0.0):
   )
  
     response = client.chat.completions.create(
-    model="gpt-4-32k",
+    model="gpt-35-turbo",
     messages=messages
     )
 

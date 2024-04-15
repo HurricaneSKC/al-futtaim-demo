@@ -2,6 +2,7 @@ from typing import List, Optional
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, parse_obj_as
+import time;
 import logging
 import pandas as pd
 from .filter_cars_using_prompt_conversation import generate_response_and_update_messages, load_and_preprocess_data
@@ -77,11 +78,15 @@ async def get_cars(data: CarPrompt):
 
 
     logger.info(f'before  generate_response_and_update_messages')
+    
+    start = time.time()
 
     output_df, messages = generate_response_and_update_messages(messages_dic, df)
 
     logger.info(f'after  generate_response_and_update_messages')
-
+    end = time.time()
+    
+    print(end - start)
 
     # logger.info(f'messages : {messages}')
     # logger.info(f'output_df : {output_df.shape}')
