@@ -15,29 +15,33 @@ export default function PinchGrid({
 
   const setLevelHandler = (scale: number) => {
     if (scale >= 1.5 && scale < 2) {
-      setLevel('1')
-    }
-
-    else if (scale >= 3 && scale <= 4) {
-      setLevel('2');
+      setLevel("1");
+    } else if (scale >= 3 && scale <= 4) {
+      setLevel("2");
     }
 
     if (scale <= 1) {
       setLevel(null);
     }
-  }
+  };
   return (
-    <TransformWrapper maxScale={4} minScale={1} disablePadding onWheel={(ref) => {
-      const scale = ref.state.scale;
-      setLevelHandler(scale);
-    }} onPinching={(ref) => {
-      const scale = ref.state.scale;
-      setLevelHandler(scale);
-    }}>
-      <TransformComponent wrapperClass="overflow-auto max-h-[97vh]">
+    <TransformWrapper
+      maxScale={4}
+      minScale={1}
+      disablePadding
+      onWheel={(ref) => {
+        const scale = ref.state.scale;
+        setLevelHandler(scale);
+      }}
+      onPinching={(ref) => {
+        const scale = ref.state.scale;
+        setLevelHandler(scale);
+      }}
+    >
+      <TransformComponent wrapperClass="overflow-auto max-h-[calc(100%-155px)]">
         <div className={cn("grid grid-cols-4 gap-0", className)}>
           {children}
-        </div> 
+        </div>
       </TransformComponent>
     </TransformWrapper>
   );
