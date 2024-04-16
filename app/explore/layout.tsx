@@ -31,7 +31,7 @@ export default function ExploreLayout({
 
   return (
     <main className="flex flex-col justify-start items-center h-full w-full">
-      <div className="flex-1 w-full">{children}</div>
+      <div className="flex-1 w-full overflow-hidden">{children}</div>
       <Footer className="self-end" />
       {showChatOverlay && (
         <ChatOverlay onBackClick={() => setShowChatOverlay(false)} />
