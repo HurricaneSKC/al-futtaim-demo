@@ -6,6 +6,8 @@ import InitialChatBotMessage from "./InitialChatBotMessage";
 import { DataContext, DataProps } from "@/app/context/dataContext";
 import Image from "next/image";
 import ChatBotMessageTemplate from "./ChatBotMessageTemplate";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Props {
   messages: Message[];
@@ -13,14 +15,18 @@ interface Props {
 }
 
 const ChatList = ({ messages, isLoading }: Props) => {
+  const router = useRouter();
+  const { setShowChatOverlay } = useContext(DataContext);
+  const closeChat = () => {
+    router.push("/explore");
+    setShowChatOverlay(false);
+  };
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
   const { serverData } = useContext(DataContext);
   const carImages = (serverData: DataProps) => {
-    console.log(serverData.cars.length);
-
     if (serverData.cars.length >= 4 || serverData.cars.length < 0) return null;
     return (
       <ChatBotMessageTemplate>
@@ -31,13 +37,18 @@ const ChatList = ({ messages, isLoading }: Props) => {
         </p>
         <div className="grid grid-cols-2 items-center justify-items-center min-h-[200px] bg-white rounded-2xl shadow">
           {serverData.cars.length === 1 ? (
-            <Image
-              src={serverData.cars[0].image}
-              width={300}
-              height={300}
-              alt={serverData.cars[0].Car_Name}
-              className="col-span-2"
-            />
+            <Link
+              href={`/cars/${serverData.cars[0].Car_Name}`}
+              className="text-[9px] col-span-2"
+            >
+              <Image
+                src={serverData.cars[0].image}
+                width={300}
+                height={300}
+                alt={serverData.cars[0].Car_Name}
+                className="col-span-2"
+              />
+            </Link>
           ) : (
             serverData.cars.map((car, index) => (
               <Image
@@ -47,6 +58,7 @@ const ChatList = ({ messages, isLoading }: Props) => {
                 height={150}
                 alt={car.Car_Name}
                 className={index === 0 ? "row-span-2" : ""}
+                onClick={closeChat}
               />
             ))
           )}
