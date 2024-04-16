@@ -39,7 +39,7 @@ import XC60 from "@/app/assets/mock/volvo/image 42.svg";
 import XC90 from "@/app/assets/mock/volvo/image 43.svg";
 import XC91 from "@/app/assets/mock/volvo/image 44.svg";
 
-export const ALL_IMAGE = {
+export const ALL_IMAGE: { [key:string]:string; } = {
   Challenger,
   Charger,
   Durango,

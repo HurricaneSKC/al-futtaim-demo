@@ -1,5 +1,4 @@
-"use client";
-import "regenerator-runtime/runtime";
+import "regenerator-runtime/runtime.js";
 import "./globals.css";
 import { DataProvider } from "./context/dataContext";
 
