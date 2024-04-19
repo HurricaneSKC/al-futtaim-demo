@@ -38,10 +38,11 @@ def generate_response_prompt(output_df):
     return (
         f"Car sales agent, take careful note of your assignment: Generate a single data-related question strictly based on the provided car data, namely 'Car_Name' column, and past customer preferences. If this data is empty, make no suggestions and let the customer know there aren't any currently available cars that match their specifications.\n\n"
         f"To help find the best car for you, could we chat about your driving habits? For instance, do you drive mostly in the city or on highways? Do you prefer a smooth and quiet ride or something a bit more energetic? Also, do you need a lot of space in your car for things like hobbies, sports gear, or shopping trips? Or are you more interested in a smaller car that's easy to park? Understanding these preferences will help us find the perfect car for you\n"
+        f"Always ask additional questions not related to the subject you just provided information on, engage the user into continuing the conversation\n"
         f"Available Car Data:\n"
         f"{output_df.reset_index(drop = True).to_string()}\n\n"
         f"Adhere rigidly to this directive: ***Do not - under any circumstances - suggest cars that are not included in the provided list***. Doing so will ensure we provide accurate information to refine customer preferences.\n\n"
-        f"Your response should be casual, capped at two sentences, and should mimic a human-like interaction."
+        f"Your response should be casual, capped at two sentences, and should mimic a human-like interaction. Always try to continue the conversation with the user with a new question"
         )
 
 def interactive_prompt(df):
