@@ -1,6 +1,6 @@
-import CarGrid from "@/app/components/CarGrid";
 import Header from "../components/Header";
 import AppLogo from "../components/ui/Logo";
+import CarDataDisplay from "../components/CarDataDisplay";
 
 export default function ExplorePage() {
   return (
@@ -15,7 +15,8 @@ export default function ExplorePage() {
         <div className="flex-1"></div>
       </Header>
 
-      <CarGrid />
+      {/* <CarGrid /> */}
+      <CarDataDisplay />
     </div>
   );
 }
