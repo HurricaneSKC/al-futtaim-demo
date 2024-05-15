@@ -45,7 +45,7 @@ export const ALL_IMAGE: { [key:string]:string; } = {
   Durango,
   GrandCaravan,
   Gladiator,
-  GrandCherokee,
+  Cherokee,
   Wrangler,
   IS,
   NX,

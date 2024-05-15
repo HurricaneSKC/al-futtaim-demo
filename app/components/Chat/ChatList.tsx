@@ -32,7 +32,7 @@ const ChatList = ({ messages, isLoading }: Props) => {
       <ChatBotMessageTemplate>
         <p className="m-1">
           {serverData.cars.length === 1
-            ? "Here is your best option that we have available"
+            ? "Here is your best option that we have available, would you like to book a test drive?"
             : `Here are ${serverData.cars.length} of the options we have available`}
         </p>
         <div className="grid grid-cols-2 items-center justify-items-center min-h-[200px] bg-white rounded-2xl shadow">
