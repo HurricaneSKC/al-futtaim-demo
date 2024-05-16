@@ -40,7 +40,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",  # Allow frontend origin
-    "https://al-futtaim-demo-git-feature-deploy-hurricaneskcs-projects.vercel.app/",
+    "https://al-futtaim-demo-git-feature-deploy-hurricaneskcs-projects.vercel.app",
 ]
 
 app.add_middleware(
