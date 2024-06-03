@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://al-futtaim-demo-u6m7umbyta-zf.a.run.app/api",
+  baseURL: "http://localhost:8000/api",
 });
 
 export default instance;
